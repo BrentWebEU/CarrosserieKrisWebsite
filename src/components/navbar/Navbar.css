@@ -1,122 +1,83 @@
-/*-- Navbar --*/
-.main-nav {
-  background: #ffffff;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
-.main-nav.menu-shrink {
-  -webkit-box-shadow: 0px 0px 20px 0px #dddddd91;
-  box-shadow: 0px 0px 20px 0px #dddddd91;
-}
-
-.main-nav.menu-shrink .navbar-light {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-.main-nav nav {
-  -webkit-transition: 0.5s all ease;
-  transition: 0.5s all ease;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.logo img {
-  width: 80px;
-}
-
-@media screen and (max-width: 991px) {
-  .logo img {
-    width: 40px;
-  }
-}
-
-.main-nav nav .navbar-nav {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.main-nav nav .navbar-nav .nav-item:hover a {
-  color: #f22a2a;
-}
-
-.main-nav nav .navbar-nav .nav-item a {
-  color: #333333;
-  text-transform: capitalize;
-  font-weight: 500;
-  -webkit-transition: 0.5s all ease;
-  transition: 0.5s all ease;
-}
-
-.main-nav nav .navbar-nav .nav-item a:hover,
-.main-nav nav .navbar-nav .nav-item a:focus,
-.main-nav nav .navbar-nav .nav-item a.active {
-  color: #f22a2a;
-}
-
-.main-nav nav .navbar-nav .nav-item .dropdown-menu {
-  -webkit-transform: rotate(6deg);
-  transform: rotate(6deg);
-  -webkit-transition: all 0.7s ease;
-  transition: all 0.7s ease;
-  left: 50px;
-  background: #ffffff;
-  border-radius: 0;
-}
-
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a {
-  color: #333333;
-  font-weight: 500;
-}
-
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:hover,
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:focus,
-.main-nav nav .navbar-nav .nav-item .dropdown-menu li a.active {
-  color: #f22a2a;
-}
-
-.main-nav nav .navbar-nav .nav-item:hover ul {
-  -webkit-transform: rotate(0deg);
-  transform: rotate(0deg);
+/* Modern Navbar */
+.modern-navbar {
+  position: fixed;
+  top: 0;
   left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.main-nav nav .cmn-btn {
-  width: 13%;
-  text-align: right;
+.modern-navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.main-nav nav .cmn-btn a {
-  padding: 8px 20px 13px;
-  margin-right: 0;
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  height: 80px;
 }
 
-.main-nav nav .cmn-btn a i {
-  font-size: 23px;
-  top: 5px;
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
 }
-.mean-container .mean-nav .navbar-nav {
-  height: 350px;
-  overflow-y: scroll;
+
+.navbar-logo a {
+  display: block;
+  text-decoration: none;
 }
-.mean-container .mean-bar {
-  background-color: #fff;
+
+.navbar-logo img {
+  height: 50px;
+  width: auto;
+  transition: all 0.3s ease;
 }
-.mobile-nav .logo {
-  top: 9px;
-  max-width: 105px;
+
+.modern-navbar.scrolled .navbar-logo img {
+  height: 45px;
 }
-.mean-container a.meanmenu-reveal span {
-  background: #f22a2a;
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
   position: relative;
-  top: 8px;
-  margin-top: -6px;
 }
-.mean-container a.meanmenu-reveal {
-  color: #f22a2a;
+
+.nav-link {
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.025em;
 }
-.mobile-nav.mean-container .mean-nav ul li a.active {
-  color: #f22a2a;
-}
-/*-- End Navbar --*/
+
+.nav-link::before {
+  content: '';\n  position: absolute;\n  bottom: -2px;\n  left: 50%;\n  width: 0;\n  height: 2px;\n  background: linear-gradient(45deg, #f22a2a, #ff4757);\n  border-radius: 1px;\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  transform: translateX(-50%);\n}\n\n.nav-link:hover::before,\n.nav-link.active::before {\n  width: 100%;\n}\n\n.nav-link:hover {\n  color: #f22a2a;\n}\n\n.nav-link.active {\n  color: #f22a2a;\n}\n\n/* Contact Button */\n.navbar-contact {\n  display: flex;\n  align-items: center;\n}\n\n.contact-button {\n  display: flex;\n  align-items: center;\n  gap: 0.5rem;\n  background: linear-gradient(45deg, #f22a2a, #ff4757);\n  color: white;\n  text-decoration: none;\n  padding: 0.75rem 1.5rem;\n  border-radius: 50px;\n  font-weight: 600;\n  font-size: 0.9rem;\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  box-shadow: 0 4px 15px rgba(242, 42, 42, 0.2);\n}\n\n.contact-button:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 8px 25px rgba(242, 42, 42, 0.3);\n  color: white;\n  text-decoration: none;\n}\n\n.contact-icon {\n  font-size: 1rem;\n}\n\n.contact-text {\n  font-size: 0.9rem;\n}\n\n/* Mobile Menu Toggle */\n.mobile-menu-toggle {\n  display: none;\n  flex-direction: column;\n  background: none;\n  border: none;\n  cursor: pointer;\n  padding: 0.5rem;\n  width: 2.5rem;\n  height: 2.5rem;\n  justify-content: center;\n  align-items: center;\n  gap: 0.25rem;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n}\n\n.hamburger-line {\n  width: 1.5rem;\n  height: 2px;\n  background: #333;\n  border-radius: 1px;\n  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n  transform-origin: center;\n}\n\n.mobile-menu-toggle:hover {\n  background: rgba(242, 42, 42, 0.1);\n}\n\n.mobile-menu-toggle:hover .hamburger-line {\n  background: #f22a2a;\n}\n\n.mobile-menu-toggle.active .hamburger-line:nth-child(1) {\n  transform: rotate(45deg) translate(5px, 5px);\n}\n\n.mobile-menu-toggle.active .hamburger-line:nth-child(2) {\n  opacity: 0;\n}\n\n.mobile-menu-toggle.active .hamburger-line:nth-child(3) {\n  transform: rotate(-45deg) translate(7px, -6px);\n}\n\n/* Mobile Navigation */\n.mobile-nav-overlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  bottom: 0;\n  background: rgba(0, 0, 0, 0.5);\n  backdrop-filter: blur(5px);\n  z-index: 9999;\n}\n\n.mobile-nav {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  width: 320px;\n  max-width: 85vw;\n  background: rgba(255, 255, 255, 0.98);\n  backdrop-filter: blur(25px);\n  border-left: 1px solid rgba(255, 255, 255, 0.2);\n  display: flex;\n  flex-direction: column;\n  overflow-y: auto;\n}\n\n.mobile-nav-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.5rem 2rem;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n}\n\n.mobile-logo {\n  height: 40px;\n  width: auto;\n}\n\n.mobile-nav-close {\n  background: none;\n  border: none;\n  font-size: 1.5rem;\n  color: #333;\n  cursor: pointer;\n  padding: 0.5rem;\n  border-radius: 8px;\n  transition: all 0.3s ease;\n}\n\n.mobile-nav-close:hover {\n  background: rgba(242, 42, 42, 0.1);\n  color: #f22a2a;\n}\n\n.mobile-nav-list {\n  flex: 1;\n  list-style: none;\n  margin: 0;\n  padding: 2rem 0;\n}\n\n.mobile-nav-item {\n  margin-bottom: 0.5rem;\n}\n\n.mobile-nav-link {\n  display: block;\n  color: #333;\n  text-decoration: none;\n  font-weight: 500;\n  font-size: 1.1rem;\n  padding: 1rem 2rem;\n  transition: all 0.3s ease;\n  border-left: 3px solid transparent;\n}\n\n.mobile-nav-link:hover,\n.mobile-nav-link.active {\n  color: #f22a2a;\n  background: rgba(242, 42, 42, 0.05);\n  border-left-color: #f22a2a;\n}\n\n.mobile-nav-contact {\n  padding: 2rem;\n  border-top: 1px solid rgba(0, 0, 0, 0.1);\n  display: flex;\n  flex-direction: column;\n  gap: 1rem;\n}\n\n.mobile-contact-btn {\n  display: flex;\n  align-items: center;\n  gap: 0.75rem;\n  color: #333;\n  text-decoration: none;\n  font-weight: 500;\n  padding: 1rem;\n  border-radius: 12px;\n  background: rgba(242, 42, 42, 0.05);\n  border: 1px solid rgba(242, 42, 42, 0.1);\n  transition: all 0.3s ease;\n}\n\n.mobile-contact-btn:hover {\n  background: rgba(242, 42, 42, 0.1);\n  color: #f22a2a;\n  transform: translateY(-1px);\n}\n\n/* Responsive Design */\n@media (max-width: 992px) {\n  .desktop-nav,\n  .navbar-contact {\n    display: none;\n  }\n  \n  .mobile-menu-toggle {\n    display: flex;\n  }\n  \n  .navbar-container {\n    padding: 1rem 1.5rem;\n  }\n}\n\n@media (max-width: 768px) {\n  .navbar-container {\n    padding: 1rem;\n    height: 70px;\n  }\n  \n  .navbar-logo img {\n    height: 45px;\n  }\n  \n  .modern-navbar.scrolled .navbar-logo img {\n    height: 40px;\n  }\n  \n  .mobile-nav {\n    width: 280px;\n  }\n}\n\n@media (max-width: 480px) {\n  .mobile-nav {\n    width: 100vw;\n  }\n  \n  .mobile-nav-header {\n    padding: 1rem;\n  }\n  \n  .mobile-nav-contact {\n    padding: 1.5rem 1rem;\n  }\n}\n\n/* Legacy styles override */\n.navbar-area,\n.main-nav,\n.mobile-nav.py-2 {\n  display: none !important;\n}\n\n/* Smooth scroll behavior */\nhtml {\n  scroll-behavior: smooth;\n}\n\n/* Add space for fixed navbar */\nbody {\n  padding-top: 80px;\n}\n\n@media (max-width: 768px) {\n  body {\n    padding-top: 70px;\n  }\n}\n
