@@ -1,6 +1,6 @@
 import "./Services.css";
 import Car1 from "../../assets/img/20210211_115559.jpg";
-import Car2 from "../../assets/img/20211008_153443.jpg";
+
 import Car3 from "../../assets/img/20210528_101302.jpg";
 import Car4 from "../../assets/img/20190121_172412.jpg";
 import Car5 from "../../assets/img/20210526_200124.jpg";
