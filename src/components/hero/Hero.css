@@ -1,4 +1,4 @@
-/* Minimal Hero - Name, Phone, Email Focus */
+/* Hero with Split Layout - Text Left, Image Right */
 .hero-section {
   position: relative;
   min-height: 100vh;
@@ -6,10 +6,9 @@
   background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-/* Simple dark background */
+/* Dark background */
 .hero-background {
   position: absolute;
   top: 0;
@@ -25,49 +24,78 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(242, 42, 42, 0.05) 0%,
-    rgba(0, 0, 0, 0.95) 80%
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 60%,
+    rgba(242, 42, 42, 0.1) 100%
   );
 }
 
-/* Logo as minimal decoration */
-.hero-logo-decoration {
+/* Right side car image */
+.hero-image-section {
   position: absolute;
-  top: 30px;
-  right: 30px;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
   z-index: 2;
-  opacity: 0.1;
-  pointer-events: none;
 }
 
-.logo-decoration {
-  width: 60px;
-  height: auto;
-  filter: brightness(2) opacity(0.5);
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-/* Main Content */
+.hero-car-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center left;
+  filter: brightness(0.8) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.image-fade-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 30%,
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(242, 42, 42, 0.1) 100%
+  );
+}
+
+/* Main Content - Left Side */
 .hero-content {
   position: relative;
   z-index: 10;
-  width: 100%;
-  max-width: 600px;
-  padding: 0 2rem;
+  width: 50%;
+  padding: 0 3rem;
 }
 
 .hero-content-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: 3rem;
+  max-width: 500px;
 }
 
-/* Company Name - Main Focus */
+/* Company Name with Logo Integration */
 .company-name {
-  font-size: clamp(3rem, 10vw, 7rem);
+  font-size: clamp(2.5rem, 8vw, 5.5rem);
   font-weight: 900;
   line-height: 0.9;
   margin: 0;
@@ -80,6 +108,39 @@
 .name-carrosserie {
   color: #ffffff;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.logo-o-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+  position: relative;
+  margin: 0 0.05em;
+}
+
+.logo-o {
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 0.1em;
+  box-shadow:
+    0 0 0 3px rgba(242, 42, 42, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.logo-o:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow:
+    0 0 0 3px rgba(242, 42, 42, 0.5),
+    0 8px 25px rgba(242, 42, 42, 0.2);
 }
 
 .name-kris {
@@ -95,21 +156,19 @@
   content: "";
   position: absolute;
   bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 100px;
   height: 4px;
   background: linear-gradient(45deg, #f22a2a, #ff6b6b);
   border-radius: 2px;
 }
 
-/* Contact Actions - Phone and Email */
+/* Contact Actions */
 .contact-actions {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  align-items: center;
 }
 
 .contact-primary,
@@ -125,8 +184,7 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  min-width: 320px;
-  justify-content: center;
+  max-width: 400px;
 }
 
 .contact-primary::before,
@@ -217,7 +275,7 @@
 .scroll-indicator {
   position: absolute;
   bottom: 2rem;
-  left: 50%;
+  left: 25%;
   transform: translateX(-50%);
   z-index: 10;
 }
@@ -246,27 +304,82 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .hero-content {
+    padding: 0 2rem;
+  }
+
+  .hero-content-wrapper {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-image-section {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    order: 2;
+  }
+
+  .hero-content {
+    width: 100%;
+    padding: 2rem;
+    order: 1;
+    z-index: 10;
+  }
+
+  .hero-content-wrapper {
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .name-carrosserie {
+    justify-content: center;
+  }
+
+  .name-kris::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .scroll-indicator {
+    left: 50%;
+  }
+
+  .image-fade-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(242, 42, 42, 0.1) 100%
+    );
+  }
+}
+
 @media (max-width: 768px) {
   .hero-content {
-    padding: 0 1rem;
+    padding: 1rem;
   }
 
   .hero-content-wrapper {
     gap: 2.5rem;
   }
 
-  .hero-logo-decoration {
-    top: 20px;
-    right: 20px;
-  }
-
-  .logo-decoration {
-    width: 50px;
+  .hero-image-section {
+    height: 35vh;
   }
 
   .contact-primary,
   .contact-secondary {
-    min-width: 280px;
+    max-width: 320px;
     padding: 1.25rem 2rem;
     font-size: 1rem;
   }
@@ -283,20 +396,20 @@
 
 @media (max-width: 480px) {
   .hero-content {
-    padding: 0 0.5rem;
+    padding: 0.5rem;
   }
 
   .hero-content-wrapper {
     gap: 2rem;
   }
 
-  .hero-logo-decoration {
-    top: 15px;
-    right: 15px;
+  .hero-image-section {
+    height: 30vh;
   }
 
-  .logo-decoration {
-    width: 40px;
+  .logo-o {
+    width: 0.7em;
+    height: 0.7em;
   }
 
   .name-kris::after {
@@ -305,7 +418,7 @@
 
   .contact-primary,
   .contact-secondary {
-    min-width: 260px;
+    max-width: 280px;
     padding: 1rem 1.5rem;
     font-size: 0.95rem;
   }
@@ -347,17 +460,28 @@
   animation: glow 2s ease-in-out infinite;
 }
 
+/* Image hover effect */
+.hero-section:hover .hero-car-image {
+  filter: brightness(0.9) contrast(1.2);
+  transform: scale(1.02);
+}
+
 /* Print styles */
 @media print {
   .hero-section {
     min-height: auto;
     background: white;
     color: black;
+    flex-direction: column;
   }
 
   .hero-gradient,
-  .hero-logo-decoration {
+  .hero-image-section {
     display: none;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 
   .company-name {
