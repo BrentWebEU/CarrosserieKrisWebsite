@@ -10,15 +10,15 @@ export default function Hero() {
 
   // Parallax transforms
   const contentY = useTransform(scrollY, [0, 1000], [0, -100]);
-  const logoY = useTransform(scrollY, [0, 1000], [0, -50]);
+  const logoY = useTransform(scrollY, [0, 1000], [0, -30]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
         setMousePosition({
-          x: (e.clientX - rect.left - rect.width / 2) / 50,
-          y: (e.clientY - rect.top - rect.height / 2) / 50,
+          x: (e.clientX - rect.left - rect.width / 2) / 100,
+          y: (e.clientY - rect.top - rect.height / 2) / 100,
         });
       }
     };
@@ -41,11 +41,11 @@ export default function Hero() {
           <motion.div
             className="floating-element element-1"
             animate={{
-              y: [0, -15, 0],
-              opacity: [0.1, 0.2, 0.1],
+              y: [0, -20, 0],
+              opacity: [0.05, 0.15, 0.05],
             }}
             transition={{
-              duration: 8,
+              duration: 12,
               repeat: Infinity,
               ease: "easeInOut",
             }}
@@ -54,9 +54,10 @@ export default function Hero() {
             className="floating-element element-2"
             animate={{
               rotate: [0, 360],
+              scale: [1, 1.1, 1],
             }}
             transition={{
-              duration: 20,
+              duration: 25,
               repeat: Infinity,
               ease: "linear",
             }}
@@ -64,7 +65,25 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Main content centered */}
+      {/* Subtle logo as design element */}
+      <motion.div
+        className="hero-logo-decoration"
+        style={{
+          y: logoY.get() + mousePosition.y * 0.5,
+          x: mousePosition.x * 0.3,
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 1.5 }}
+      >
+        <img
+          src={Logo}
+          alt="Carrosserie Kris Logo"
+          className="logo-decoration"
+        />
+      </motion.div>
+
+      {/* Main content - text and buttons are the focus */}
       <motion.div
         className="hero-content"
         style={{ y: contentY }}
@@ -73,36 +92,9 @@ export default function Hero() {
         transition={{ duration: 1.2, delay: 0.3 }}
       >
         <div className="hero-content-wrapper">
-          {/* Logo as main visual element */}
+          {/* Main headline - primary focus */}
           <motion.div
-            className="hero-logo-section"
-            style={{
-              y: logoY.get() + mousePosition.y * 0.2,
-              x: mousePosition.x * 0.3,
-            }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <motion.div
-              className="logo-container"
-              whileHover={{
-                scale: 1.05,
-                rotate: 5,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              <img
-                src={Logo}
-                alt="Carrosserie Kris Logo"
-                className="hero-logo-image"
-              />
-            </motion.div>
-          </motion.div>
-
-          {/* Text content */}
-          <motion.div
-            className="hero-text-section"
+            className="hero-main-content"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -113,8 +105,9 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
+              <span className="title-highlight">Professionele</span>
               <span className="title-main">Carrosserie</span>
-              <span className="title-accent">Kris</span>
+              <span className="title-accent">Service</span>
             </motion.h1>
 
             <motion.p
@@ -123,52 +116,75 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1 }}
             >
-              Dé carrosserie voor jong en oud. Professionele service in het hart
-              van Grobbendonk.
+              Uw auto verdient de beste zorg. Bij Carrosserie Kris krijgt u
+              vakkundige reparaties, persoonlijke service en de zekerheid van
+              Eurogarant kwaliteit.
             </motion.p>
 
+            {/* Call-to-action buttons - secondary focus */}
             <motion.div
-              className="hero-features"
+              className="hero-cta-section"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
-              <div className="feature-item">
-                <i className="bx bx-shield-quarter"></i>
-                <span>Eurogarant erkend</span>
-              </div>
-              <div className="feature-item">
-                <i className="bx bx-car"></i>
-                <span>Vervangwagen service</span>
-              </div>
-              <div className="feature-item">
-                <i className="bx bx-wrench"></i>
-                <span>Moderne faciliteiten</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="hero-contact-section"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.4 }}
-            >
-              <div className="contact-buttons">
-                <a href="tel:+32497284662" className="contact-btn primary-btn">
+              <div className="cta-primary">
+                <a href="tel:+32497284662" className="cta-btn main-cta">
                   <i className="bx bx-phone-call"></i>
-                  <span>+32 497 28 46 62</span>
+                  <span className="btn-content">
+                    <span className="btn-label">Direct contact</span>
+                    <span className="btn-detail">+32 497 28 46 62</span>
+                  </span>
                 </a>
+              </div>
 
+              <div className="cta-secondary">
                 <a
                   href="mailto:kris@carrosseriekris.be"
-                  className="contact-btn secondary-btn"
+                  className="cta-btn secondary-cta"
                 >
                   <i className="bx bx-envelope"></i>
                   <span>Email ons</span>
                 </a>
+
+                <button
+                  className="cta-btn info-cta"
+                  onClick={() => {
+                    const aboutElement = document.getElementById("about");
+                    if (aboutElement) {
+                      aboutElement.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  <i className="bx bx-info-circle"></i>
+                  <span>Meer info</span>
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Supporting information */}
+            <motion.div
+              className="hero-supporting-info"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.4 }}
+            >
+              <div className="info-highlights">
+                <div className="highlight-item">
+                  <i className="bx bx-shield-quarter"></i>
+                  <span>Eurogarant erkend</span>
+                </div>
+                <div className="highlight-item">
+                  <i className="bx bx-car"></i>
+                  <span>Gratis vervangwagen</span>
+                </div>
+                <div className="highlight-item">
+                  <i className="bx bx-time"></i>
+                  <span>Snelle service</span>
+                </div>
               </div>
 
-              <div className="hero-location-info">
+              <div className="location-info">
                 <i className="bx bx-map"></i>
                 <span>Herentalse Steenweg 89A, 2280 Grobbendonk</span>
               </div>
@@ -188,6 +204,12 @@ export default function Hero() {
           className="scroll-arrow"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
+          onClick={() => {
+            const erkenningSectio = document.getElementById("erkenning");
+            if (erkenningSectio) {
+              erkenningSectio.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
         >
           <i className="bx bx-chevron-down"></i>
         </motion.div>
