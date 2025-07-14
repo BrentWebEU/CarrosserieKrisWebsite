@@ -1,0 +1,134 @@
+.quality-area {
+  background-color: transparent;
+  position: relative;
+}
+
+.quality-area .quality-img .quality-img-container {
+  object-fit: contain;
+  overflow: hidden;
+  border-radius: 20px;
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  border: #212121 2px solid;
+  margin: 0 auto; /* Add this line */
+}
+
+.quality-area .quality-img img {
+  position: relative;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 350px;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.quality-area .quality-img:hover img {
+  transform: scale(1.1);
+}
+
+@-webkit-keyframes quality-ani {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  50% {
+    -webkit-transform: translate(0, -40px);
+    transform: translate(0, -40px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes quality-ani {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  50% {
+    -webkit-transform: translate(0, -40px);
+    transform: translate(0, -40px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+.quality-content {
+  max-width: 500px;
+  margin-left: 0;
+  padding-top: 100px;
+  padding: 0px 40px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.quality-content .section-title {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.quality-content .section-title h2 {
+  color: #212121;
+}
+
+.quality-content .section-title p {
+  margin-left: 0;
+  margin-top: 18px;
+  color: #212121;
+}
+
+.quality-content .cmn-btn a {
+  padding: 12px 20px;
+}
+
+.quality-content img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.1;
+  -webkit-animation: quality-tyre 10s infinite linear;
+  animation: quality-tyre 10s infinite linear;
+}
+
+@-webkit-keyframes quality-tyre {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    -webkit-transform: translate(-100px, 0px);
+    transform: translate(-100px, 0px);
+  }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes quality-tyre {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    -webkit-transform: translate(-100px, 0px);
+    transform: translate(-100px, 0px);
+  }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+}

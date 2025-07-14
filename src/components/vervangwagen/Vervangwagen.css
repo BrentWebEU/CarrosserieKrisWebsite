@@ -1,0 +1,152 @@
+.vervangwagen-area {
+  background-color: #000000;
+  position: relative;
+  display: flex;
+}
+
+.vervangwagen-img .swiper-wrapper {
+  width: 500px;
+  height: 500px;
+}
+
+.vervangwagen-area .vervangwagen-img img {
+  position: absolute;
+}
+
+.vervangwagen-area .vervangwagen-img img:nth-child(1) {
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.vervangwagen-area .vervangwagen-img img:nth-child(2) {
+  left: -151px;
+  top: 0px;
+  height: 100%;
+}
+
+.vervangwagen-area .vervangwagen-img .swiper img {
+  bottom: -65px;
+  left: 0;
+  z-index: 1;
+}
+
+@-webkit-keyframes vervangwagen-ani {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  50% {
+    -webkit-transform: translate(0, -40px);
+    transform: translate(0, -40px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes vervangwagen-ani {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  50% {
+    -webkit-transform: translate(0, -40px);
+    transform: translate(0, -40px);
+  }
+
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+
+.vervangwagen-content {
+  max-width: 500px;
+  margin-left: auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  position: relative;
+}
+
+.vervangwagen-content .section-title {
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.vervangwagen-content .section-title h2 {
+  color: #ffffff;
+}
+
+.vervangwagen-content .section-title p {
+  margin-left: 0;
+  margin-top: 18px;
+  color: #ffffff;
+}
+
+.vervangwagen-content .cmn-btn a {
+  padding: 12px 20px;
+}
+
+.vervangwagen-content img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0.1;
+  -webkit-animation: vervangwagen-tyre 10s infinite linear;
+  animation: vervangwagen-tyre 10s infinite linear;
+}
+
+@-webkit-keyframes vervangwagen-tyre {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    -webkit-transform: translate(-100px, 0px);
+    transform: translate(-100px, 0px);
+  }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+}
+
+@keyframes vervangwagen-tyre {
+  0% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+
+  50% {
+    -webkit-transform: translate(-100px, 0px);
+    transform: translate(-100px, 0px);
+  }
+
+  100% {
+    -webkit-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+  }
+}
+
+/*-- vervangwagen --*/
+@media only screen and (max-width: 767px) {
+
+  .vervangwagen-area {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vervangwagen-img .swiper-wrapper {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+/*-- End vervangwagen --*/

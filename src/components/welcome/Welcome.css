@@ -1,0 +1,183 @@
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title .sub-title {
+  font-weight: 500;
+  color: #ffffff;
+  text-transform: uppercase;
+  position: relative;
+  display: block;
+  z-index: 1;
+  padding-top: 7px;
+  margin-bottom: 20px;
+}
+
+.section-title .sub-title:before {
+  position: absolute;
+  content: "";
+  width: 120px;
+  height: 35px;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #f22a2a;
+  z-index: -1;
+  -webkit-transform: skewX(-28deg);
+  transform: skewX(-28deg);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-title h2 {
+  font-weight: 600;
+  font-size: 38px;
+  margin-bottom: 0;
+}
+
+.section-title p {
+  margin-bottom: 0;
+  margin-top: 10px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.process-area {
+  position: relative;
+  overflow: hidden;
+}
+
+.process-area .process-shape {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 165px;
+  max-width: 1035px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.process-item {
+  margin-bottom: 30px;
+}
+
+.process-item .process-inner {
+  text-align: right;
+  position: relative;
+  padding-right: 80px;
+}
+
+.process-item .process-inner i {
+  position: absolute;
+  top: 0;
+  right: 12px;
+  font-size: 50px;
+  z-index: 1;
+  color: #000000;
+}
+
+.process-item .process-inner i:after {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 50px;
+  top: 0;
+  right: -12px;
+  background-color: #f22a2a;
+  z-index: -1;
+}
+
+.process-item .process-inner h3 {
+  font-weight: 600;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.process-item .process-inner p {
+  margin-bottom: 0;
+  font-size: 14px;
+}
+
+.process-item .process-one {
+  margin-bottom: 100px;
+}
+
+.process-item .process-img {
+  text-align: center;
+}
+
+.process-item .process-img img {
+  -webkit-animation: process-type 25s infinite linear;
+  animation: process-type 25s infinite linear;
+  position: relative;
+  top: -12px;
+}
+
+.process-item .process-two {
+  padding-left: 80px;
+  padding-right: 0;
+  text-align: left;
+  margin-bottom: 100px;
+}
+
+.process-item .process-two i {
+  left: 12px;
+  right: unset;
+}
+
+.process-item .process-two i:after {
+  left: -12px;
+}
+
+.process-item .process-three {
+  padding-left: 80px;
+  padding-right: 0;
+  text-align: left;
+}
+
+.process-item .process-three i {
+  left: 12px;
+  right: unset;
+}
+
+.process-item .process-three i:after {
+  left: -12px;
+}
+
+@-webkit-keyframes process-type {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes process-type {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

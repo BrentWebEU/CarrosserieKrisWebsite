@@ -1,0 +1,35 @@
+.balloise {
+  animation: balloise 9000ms infinite;
+}
+
+@keyframes balloise {
+
+  0%,
+  100% {
+    transform: rotateX(-15deg) rotateY(-15deg);
+  }
+
+  25% {
+    transform: rotateX(15deg) rotateY(-15deg);
+  }
+
+  50% {
+    transform: rotateX(15deg) rotateY(15deg);
+  }
+
+  75% {
+    transform: rotateX(-15deg) rotateY(15deg);
+  }
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 720px) {
+  .flex {
+    display: flex;
+    flex-direction: column;
+  }
+}

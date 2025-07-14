@@ -1,0 +1,122 @@
+/*-- Navbar --*/
+.main-nav {
+  background: #ffffff;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.main-nav.menu-shrink {
+  -webkit-box-shadow: 0px 0px 20px 0px #dddddd91;
+  box-shadow: 0px 0px 20px 0px #dddddd91;
+}
+
+.main-nav.menu-shrink .navbar-light {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.main-nav nav {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.logo img {
+  width: 80px;
+}
+
+@media screen and (max-width: 991px) {
+  .logo img {
+    width: 40px;
+  }
+}
+
+.main-nav nav .navbar-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.main-nav nav .navbar-nav .nav-item:hover a {
+  color: #f22a2a;
+}
+
+.main-nav nav .navbar-nav .nav-item a {
+  color: #333333;
+  text-transform: capitalize;
+  font-weight: 500;
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+
+.main-nav nav .navbar-nav .nav-item a:hover,
+.main-nav nav .navbar-nav .nav-item a:focus,
+.main-nav nav .navbar-nav .nav-item a.active {
+  color: #f22a2a;
+}
+
+.main-nav nav .navbar-nav .nav-item .dropdown-menu {
+  -webkit-transform: rotate(6deg);
+  transform: rotate(6deg);
+  -webkit-transition: all 0.7s ease;
+  transition: all 0.7s ease;
+  left: 50px;
+  background: #ffffff;
+  border-radius: 0;
+}
+
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li a {
+  color: #333333;
+  font-weight: 500;
+}
+
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:hover,
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li a:focus,
+.main-nav nav .navbar-nav .nav-item .dropdown-menu li a.active {
+  color: #f22a2a;
+}
+
+.main-nav nav .navbar-nav .nav-item:hover ul {
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  left: 0;
+}
+
+.main-nav nav .cmn-btn {
+  width: 13%;
+  text-align: right;
+}
+
+.main-nav nav .cmn-btn a {
+  padding: 8px 20px 13px;
+  margin-right: 0;
+}
+
+.main-nav nav .cmn-btn a i {
+  font-size: 23px;
+  top: 5px;
+}
+.mean-container .mean-nav .navbar-nav {
+  height: 350px;
+  overflow-y: scroll;
+}
+.mean-container .mean-bar {
+  background-color: #fff;
+}
+.mobile-nav .logo {
+  top: 9px;
+  max-width: 105px;
+}
+.mean-container a.meanmenu-reveal span {
+  background: #f22a2a;
+  position: relative;
+  top: 8px;
+  margin-top: -6px;
+}
+.mean-container a.meanmenu-reveal {
+  color: #f22a2a;
+}
+.mobile-nav.mean-container .mean-nav ul li a.active {
+  color: #f22a2a;
+}
+/*-- End Navbar --*/

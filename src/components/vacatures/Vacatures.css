@@ -1,0 +1,63 @@
+.vacatures {
+  position: relative;
+}
+
+.swiper {
+  background: transparent;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  color: #f9f9f9;
+  padding: 40px 60px;
+}
+
+.swiper-pagination-bullet {
+  background: #f9f9f9;
+}
+
+.parallax-bg {
+  position: absolute;
+  opacity: 0.9;
+  left: 0;
+  top: 0;
+  width: 130%;
+  height: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center center;
+}
+
+.parallax-bg img {
+  position: absolute;
+  transform: scaleX(-1);
+}
+
+.parallax-bg img:nth-child(1) {
+  right: 320px;
+  top: 0;
+  height: 100%;
+}
+
+.parallax-bg img:nth-child(2) {
+  right: 480px;
+  top: 0px;
+  height: 100%;
+}
+
+.swiper-slide .title {
+  font-size: 41px;
+  font-weight: 300;
+}
+
+.swiper-slide .subtitle {
+  font-size: 21px;
+  width: 100%;
+}
+
+.swiper-slide .text {
+  font-size: 14px;
+  max-width: 400px;
+  line-height: 1.3;
+}
