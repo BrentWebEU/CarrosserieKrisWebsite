@@ -5,7 +5,6 @@ import Logo from "../../assets/img/logo.svg";
 import "./Hero.css";
 
 export default function Hero() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
 
