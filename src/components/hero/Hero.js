@@ -32,7 +32,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="hero-section" ref={containerRef}>
+    <div id="home" className="hero-section" ref={containerRef}>
       <motion.div className="hero-background" style={{ y: backgroundY }}>
         <div className="hero-video-container">
           <video
