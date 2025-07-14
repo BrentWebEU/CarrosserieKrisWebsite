@@ -12,24 +12,6 @@ export default function Hero() {
   const contentY = useTransform(scrollY, [0, 1000], [0, -80]);
   const imageY = useTransform(scrollY, [0, 1000], [0, -40]);
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        setMousePosition({
-          x: (e.clientX - rect.left - rect.width / 2) / 100,
-          y: (e.clientY - rect.top - rect.height / 2) / 100,
-        });
-      }
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener("mousemove", handleMouseMove);
-      return () => container.removeEventListener("mousemove", handleMouseMove);
-    }
-  }, []);
-
   return (
     <div id="home" className="hero-section" ref={containerRef}>
       {/* Dark background */}
