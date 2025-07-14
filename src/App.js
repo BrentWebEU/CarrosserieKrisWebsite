@@ -15,6 +15,7 @@ import Vervangwagen from "./components/vervangwagen/Vervangwagen";
 import Welcome from "./components/welcome/Welcome";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import HolidayPopup from "./components/holiday-popup/HolidayPopup";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -62,6 +63,7 @@ function App() {
 
   return (
     <div className="App">
+      <HolidayPopup />
       {isLoading && (
         <Preloader
           onLoadingComplete={handleLoadingComplete}
