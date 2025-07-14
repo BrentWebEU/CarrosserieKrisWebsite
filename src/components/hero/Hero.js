@@ -91,9 +91,8 @@ export default function Hero() {
       <motion.div
         className="hero-logo"
         style={{
-          y: logoY,
-          x: mousePosition.x * 0.5,
           y: logoY.get() + mousePosition.y * 0.3,
+          x: mousePosition.x * 0.5,
         }}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
