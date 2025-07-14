@@ -1,2 +1,111 @@
 // Responsive utilities and performance helpers
-import { useEffect, useState } from 'react';\n\n// Hook for responsive breakpoints\nexport const useBreakpoint = () => {\n  const [breakpoint, setBreakpoint] = useState('desktop');\n  \n  useEffect(() => {\n    const handleResize = () => {\n      const width = window.innerWidth;\n      if (width < 480) {\n        setBreakpoint('mobile');\n      } else if (width < 768) {\n        setBreakpoint('tablet-sm');\n      } else if (width < 992) {\n        setBreakpoint('tablet');\n      } else if (width < 1200) {\n        setBreakpoint('desktop-sm');\n      } else {\n        setBreakpoint('desktop');\n      }\n    };\n    \n    handleResize();\n    window.addEventListener('resize', handleResize);\n    \n    return () => window.removeEventListener('resize', handleResize);\n  }, []);\n  \n  return breakpoint;\n};\n\n// Hook for intersection observer (lazy loading, animations)\nexport const useIntersectionObserver = (options = {}) => {\n  const [ref, setRef] = useState(null);\n  const [isIntersecting, setIsIntersecting] = useState(false);\n  \n  useEffect(() => {\n    if (!ref) return;\n    \n    const observer = new IntersectionObserver(\n      ([entry]) => {\n        setIsIntersecting(entry.isIntersecting);\n      },\n      {\n        threshold: 0.1,\n        rootMargin: '50px',\n        ...options\n      }\n    );\n    \n    observer.observe(ref);\n    \n    return () => {\n      if (ref) {\n        observer.unobserve(ref);\n      }\n    };\n  }, [ref, options]);\n  \n  return [setRef, isIntersecting];\n};\n\n// Debounce utility for performance\nexport const useDebounce = (value, delay) => {\n  const [debouncedValue, setDebouncedValue] = useState(value);\n  \n  useEffect(() => {\n    const handler = setTimeout(() => {\n      setDebouncedValue(value);\n    }, delay);\n    \n    return () => {\n      clearTimeout(handler);\n    };\n  }, [value, delay]);\n  \n  return debouncedValue;\n};\n\n// Smooth scroll utility\nexport const scrollToElement = (elementId, offset = 100) => {\n  const element = document.getElementById(elementId);\n  if (element) {\n    const elementPosition = element.offsetTop - offset;\n    window.scrollTo({\n      top: elementPosition,\n      behavior: 'smooth'\n    });\n  }\n};\n\n// Image lazy loading component\nexport const LazyImage = ({ src, alt, className, ...props }) => {\n  const [imageRef, isVisible] = useIntersectionObserver();\n  const [loaded, setLoaded] = useState(false);\n  \n  return (\n    <div ref={imageRef} className={`lazy-image-container ${className || ''}`}>\n      {isVisible && (\n        <img\n          src={src}\n          alt={alt}\n          onLoad={() => setLoaded(true)}\n          className={`lazy-image ${loaded ? 'loaded' : 'loading'}`}\n          {...props}\n        />\n      )}\n    </div>\n  );\n};\n
+import { useEffect, useState } from "react";
+
+// Hook for responsive breakpoints
+export const useBreakpoint = () => {
+  const [breakpoint, setBreakpoint] = useState("desktop");
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 480) {
+        setBreakpoint("mobile");
+      } else if (width < 768) {
+        setBreakpoint("tablet-sm");
+      } else if (width < 992) {
+        setBreakpoint("tablet");
+      } else if (width < 1200) {
+        setBreakpoint("desktop-sm");
+      } else {
+        setBreakpoint("desktop");
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  return breakpoint;
+};
+
+// Hook for intersection observer (lazy loading, animations)
+export const useIntersectionObserver = (options = {}) => {
+  const [ref, setRef] = useState(null);
+  const [isIntersecting, setIsIntersecting] = useState(false);
+
+  useEffect(() => {
+    if (!ref) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsIntersecting(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "50px",
+        ...options,
+      },
+    );
+
+    observer.observe(ref);
+
+    return () => {
+      if (ref) {
+        observer.unobserve(ref);
+      }
+    };
+  }, [ref, options]);
+
+  return [setRef, isIntersecting];
+};
+
+// Debounce utility for performance
+export const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+};
+
+// Smooth scroll utility
+export const scrollToElement = (elementId, offset = 100) => {
+  const element = document.getElementById(elementId);
+  if (element) {
+    const elementPosition = element.offsetTop - offset;
+    window.scrollTo({
+      top: elementPosition,
+      behavior: "smooth",
+    });
+  }
+};
+
+// Image lazy loading component
+export const LazyImage = ({ src, alt, className, ...props }) => {
+  const [imageRef, isVisible] = useIntersectionObserver();
+  const [loaded, setLoaded] = useState(false);
+
+  return (
+    <div ref={imageRef} className={`lazy-image-container ${className || ""}`}>
+      {isVisible && (
+        <img
+          src={src}
+          alt={alt}
+          onLoad={() => setLoaded(true)}
+          className={`lazy-image ${loaded ? "loaded" : "loading"}`}
+          {...props}
+        />
+      )}
+    </div>
+  );
+};
