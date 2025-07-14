@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import CarImage from "../../assets/img/main_background_foto.png";
 import Logo from "../../assets/img/logo.svg";
 import "./Hero.css";
 
@@ -10,6 +11,7 @@ export default function Hero() {
 
   // Parallax transforms
   const contentY = useTransform(scrollY, [0, 1000], [0, -80]);
+  const imageY = useTransform(scrollY, [0, 1000], [0, -40]);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -31,26 +33,30 @@ export default function Hero() {
 
   return (
     <div id="home" className="hero-section" ref={containerRef}>
-      {/* Minimal dark background */}
+      {/* Dark background */}
       <div className="hero-background">
         <div className="hero-gradient"></div>
       </div>
 
-      {/* Logo as subtle decoration */}
+      {/* Right side car image with fade effect */}
       <motion.div
-        className="hero-logo-decoration"
-        style={{
-          x: mousePosition.x * 0.2,
-          y: mousePosition.y * 0.1,
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 2, delay: 2 }}
+        className="hero-image-section"
+        style={{ y: imageY }}
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1.5, delay: 0.5 }}
       >
-        <img src={Logo} alt="Logo" className="logo-decoration" />
+        <div className="image-container">
+          <img
+            src={CarImage}
+            alt="Classic car in lobby"
+            className="hero-car-image"
+          />
+          <div className="image-fade-overlay"></div>
+        </div>
       </motion.div>
 
-      {/* Main content - Company name, phone, email */}
+      {/* Main content - left side */}
       <motion.div
         className="hero-content"
         style={{ y: contentY }}
@@ -59,18 +65,24 @@ export default function Hero() {
         transition={{ duration: 1, delay: 0.3 }}
       >
         <div className="hero-content-wrapper">
-          {/* Company Name - Main Focus */}
+          {/* Company Name with integrated logo */}
           <motion.h1
             className="company-name"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <span className="name-carrosserie">Carrosserie</span>
+            <span className="name-carrosserie">
+              Carr
+              <span className="logo-o-container">
+                <img src={Logo} alt="O" className="logo-o" />
+              </span>
+              sserie
+            </span>
             <span className="name-kris">Kris</span>
           </motion.h1>
 
-          {/* Contact Actions - Phone and Email */}
+          {/* Contact Actions */}
           <motion.div
             className="contact-actions"
             initial={{ opacity: 0, y: 20 }}
