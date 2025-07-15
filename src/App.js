@@ -29,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+      <HolidayPopup />
       {isLoading && (
         <Preloader
           onLoadingComplete={handleLoadingComplete}
