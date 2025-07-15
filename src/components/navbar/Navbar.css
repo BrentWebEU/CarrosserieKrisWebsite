@@ -257,22 +257,6 @@
   width: auto;
 }
 
-.mobile-nav-close {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #333;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-
-.mobile-nav-close:hover {
-  background: rgba(242, 42, 42, 0.1);
-  color: #f22a2a;
-}
-
 .mobile-nav-list {
   flex: 1;
   list-style: none;
