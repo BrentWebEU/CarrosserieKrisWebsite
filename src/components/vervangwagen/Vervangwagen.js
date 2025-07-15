@@ -8,26 +8,62 @@ export default function Vervangwagen() {
   const cars = [
     {
       image: MainCar,
-      name: "Moderne Vervangwagen",
+      name: "Premium Vervangwagen",
+      available: true,
     },
     {
       image: Suzuki,
-      name: "Suzuki",
+      name: "Suzuki Swift",
+      available: true,
     },
     {
       image: Kadett,
-      name: "Kadett",
+      name: "Opel Kadett Classic",
+      available: true,
+    },
+    {
+      image: null,
+      name: "BMW 3 Series",
+      available: false,
+    },
+    {
+      image: null,
+      name: "Volkswagen Golf",
+      available: false,
+    },
+    {
+      image: null,
+      name: "Ford Focus",
+      available: false,
+    },
+    {
+      image: null,
+      name: "Audi A3",
+      available: false,
     },
   ];
 
   return (
     <section id="vervangwagen" className="vervangwagen-section">
       <div className="vervangwagen-container">
-        <h2 className="vervangwagen-title">Vervangwagens</h2>
+        <h2 className="vervangwagen-title">Onze Fantastische Vervangwagens!</h2>
+        <p className="vervangwagen-subtitle">
+          Blijf mobiel met onze uitgebreide vloot van kwaliteitsvoertuigen
+        </p>
         <div className="cars-grid">
           {cars.map((car, index) => (
-            <div key={index} className="car-card">
-              <img src={car.image} alt={car.name} />
+            <div
+              key={index}
+              className={`car-card ${!car.available ? "placeholder" : ""}`}
+            >
+              {car.image ? (
+                <img src={car.image} alt={car.name} />
+              ) : (
+                <div className="placeholder-image">
+                  <div className="car-icon">🚗</div>
+                  <span>Binnenkort beschikbaar</span>
+                </div>
+              )}
               <div className="car-name">{car.name}</div>
             </div>
           ))}
