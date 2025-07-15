@@ -73,6 +73,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3);
+  font-size: 16px;
 }
 
 .summer-popup-close-button:hover {
@@ -89,6 +90,7 @@
   color: #ff6d00;
   margin-bottom: 1rem;
   animation: pulse 2s ease-in-out infinite;
+  font-size: 3.5rem;
 }
 
 .summer-popup-title {
@@ -129,6 +131,7 @@
 
 .summer-popup-dates svg {
   color: #ff8f00;
+  font-size: 1.2rem;
 }
 
 .summer-popup-contact {
@@ -143,6 +146,7 @@
 
 .summer-popup-contact svg {
   color: #ff6d00;
+  font-size: 1.1rem;
 }
 
 .summer-message {
@@ -204,6 +208,10 @@
     font-size: 2rem;
   }
 
+  .summer-icon {
+    font-size: 3rem;
+  }
+
   .summer-popup-message {
     font-size: 1rem;
   }
@@ -225,6 +233,10 @@
 @media (max-width: 480px) {
   .summer-popup-title {
     font-size: 1.8rem;
+  }
+
+  .summer-icon {
+    font-size: 2.5rem;
   }
 
   .particle {
