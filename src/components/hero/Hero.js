@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import CarImage from "../../assets/img/main_background_foto.png";
+import CarImage from "../../assets/img/hero/Hero-Background.jpg";
 import Logo from "../../assets/img/logo.svg";
 import "./Hero.css";
 
@@ -27,17 +27,28 @@ export default function Hero() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1.5, delay: 0.5 }}
       >
-        <div className="image-container">
+        <div className="image-container" style={{ position: "relative" }}>
           <img
             src={CarImage}
             alt="Classic car in lobby"
             className="hero-car-image"
           />
-          <div className="image-fade-overlay"></div>
+          {/* Gradient overlay: black from left to halfway, transparent to right */}
+          <div
+            className="image-fade-overlay"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "10%",
+              height: "100%",
+              pointerEvents: "none",
+              background: "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)"
+            }}
+          ></div>
         </div>
       </motion.div>
 
-      {/* Main content - left side */}
       <motion.div
         className="hero-content"
         style={{ y: contentY }}

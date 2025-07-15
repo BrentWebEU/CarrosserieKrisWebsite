@@ -13,52 +13,19 @@ import Preloader from "./components/preloader/Preloader";
 import Services from "./components/services/Services";
 import Vervangwagen from "./components/vervangwagen/Vervangwagen";
 import Welcome from "./components/welcome/Welcome";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+
+import { Reoverlay as ReoverlayAPI, ModalContainer } from "reoverlay";
+import SummerPopup from "./components/summerPopup/SummerPopup";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
+    ReoverlayAPI.showModal(SummerPopup);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const apiKey = process.env.REACT_APP_APIKEY;
-        const response = await fetch(
-          "https://carrosseriekris.runasp.net/api/Popup",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              apiKey: apiKey,
-            },
-          }
-        );
-
-        // assign Data
-        const data = await response.json();
-        const arrayData = Object.values(data);
-        // Show preloader
-
-        // Popup
-        if (arrayData[0].isActive && arrayData[0]) {
-          withReactContent(Swal).fire({
-            title: arrayData[0].title,
-            color: "#212121",
-            text: arrayData[0].description,
-            confirmButtonColor: "#f22a2a",
-          });
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="App">
@@ -82,6 +49,7 @@ function App() {
       <Eurogarant />
       <Contact />
       <Footer />
+      <ModalContainer />
     </div>
   );
 }

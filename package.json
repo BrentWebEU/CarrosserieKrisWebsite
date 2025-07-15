@@ -28,6 +28,7 @@
     "react-scroll": "^1.9.3",
     "react-slick": "^0.30.1",
     "react-wow": "^1.0.0",
+    "reoverlay": "^1.0.3",
     "save-dev": "^0.0.1-security",
     "slick-carousel": "^1.8.1",
     "sweetalert2": "^11.12.1",

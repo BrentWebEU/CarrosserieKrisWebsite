@@ -1,0 +1,125 @@
+.summer-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.summer-popup-content {
+  background-color: #fff;
+  padding: 40px 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  max-width: 550px;
+  width: 90%;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  background-image: linear-gradient(135deg, #fff6e5, #fff0d9);
+  border: none;
+  transform: scale(0.9);
+  opacity: 0;
+  animation: popIn 0.5s ease-out 0.1s forwards;
+}
+
+.summer-popup-close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #ff7043;
+  transition: all 0.2s ease;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.summer-popup-close-button:hover {
+  background-color: rgba(255, 112, 67, 0.1);
+  transform: rotate(90deg);
+}
+
+.summer-popup-title {
+  color: #ff6d00;
+  margin-bottom: 20px;
+  font-size: 2.2em;
+  font-weight: 700;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+  animation: slideDown 0.4s ease-out forwards;
+}
+
+.summer-popup-message,
+.summer-popup-dates,
+.summer-popup-contact {
+  color: #424242;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+.summer-popup-message {
+  animation-delay: 0.2s;
+}
+
+.summer-popup-dates {
+  font-weight: 600;
+  color: #f4511e;
+  padding: 10px;
+  background-color: rgba(255, 193, 7, 0.1);
+  border-radius: 10px;
+  margin: 20px 0;
+  animation-delay: 0.3s;
+}
+
+.summer-popup-contact {
+  font-style: italic;
+  color: #616161;
+  animation-delay: 0.4s;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.summer-popup-contact::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 30%;
+  right: 30%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 109, 0, 0.5), transparent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
