@@ -46,10 +46,30 @@ export default function Vervangwagen() {
   return (
     <section id="vervangwagen" className="vervangwagen-section">
       <div className="vervangwagen-container">
-        <h2 className="vervangwagen-title">Onze Fantastische Vervangwagens!</h2>
-        <p className="vervangwagen-subtitle">
-          Blijf mobiel met onze uitgebreide vloot van kwaliteitsvoertuigen
-        </p>
+        <h2 className="vervangwagen-title">Vervangwagens voor Onze Klanten</h2>
+
+        <div className="vervangwagen-text-content">
+          <p>
+            Bij ons staat uw mobiliteit centraal. Daarom kan u gebruikmaken van
+            onze vervangwagens, zodat u zonder zorgen kunt blijven rijden
+            wanneer uw eigen wagen bij ons in herstelling is.
+          </p>
+
+          <p>
+            Indien de herstelling van uw voertuig via de verzekering verloopt,
+            stellen wij een vervangwagen volledig gratis ter beschikking. Zo
+            kunt u uw dagelijkse activiteiten probleemloos voortzetten.
+          </p>
+
+          <p>
+            Wanneer de schade buiten de verzekering om wordt hersteld, kunt u
+            nog steeds gebruikmaken van onze vervangwagens. In dat geval vragen
+            wij hiervoor een kleine vergoeding. Wilt u een vervangwagen
+            reserveren? Geef dit aan bij het plannen van uw afspraak, dan
+            regelen wij dit graag voor u!
+          </p>
+        </div>
+
         <div className="cars-grid">
           {cars.map((car, index) => (
             <div
