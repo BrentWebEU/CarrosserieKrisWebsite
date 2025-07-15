@@ -123,6 +123,41 @@ export default function Navbar() {
             <span className="contact-text">Bel nu</span>
           </a>
         </motion.div>
+
+        {/* Mobile Menu Toggle */}
+        <motion.button
+          className={`mobile-menu-toggle ${mobileMenuOpen ? "active" : ""}`}
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <motion.span
+            className="hamburger-line"
+            animate={{
+              rotate: mobileMenuOpen ? 45 : 0,
+              y: mobileMenuOpen ? 6 : 0,
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          />
+          <motion.span
+            className="hamburger-line"
+            animate={{
+              opacity: mobileMenuOpen ? 0 : 1,
+            }}
+            transition={{ duration: 0.2 }}
+          />
+          <motion.span
+            className="hamburger-line"
+            animate={{
+              rotate: mobileMenuOpen ? -45 : 0,
+              y: mobileMenuOpen ? -6 : 0,
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          />
+        </motion.button>
       </div>
 
       {/* Mobile Navigation */}
