@@ -303,7 +303,7 @@
   font-size: 1.3rem;
 }
 
-/* Enhanced Responsive Design */
+/* Enhanced Mobile-First Responsive Design */
 @media (max-width: 1400px) {
   .hero-content {
     padding: 0 2.5rem;
@@ -348,20 +348,26 @@
     flex-direction: column;
     text-align: center;
     min-height: 100vh;
+    padding: 1rem 0;
   }
 
   .hero-image-section {
     position: relative;
     width: 100%;
-    height: 40vh;
+    height: 45vh;
     order: 2;
+    border-radius: 1.5rem 1.5rem 0 0;
+    overflow: hidden;
+    margin-top: 1rem;
   }
 
   .hero-content {
     width: 100%;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     order: 1;
     z-index: 10;
+    display: flex;
+    justify-content: center;
   }
 
   .hero-content-wrapper {
@@ -369,7 +375,7 @@
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .name-carrosserie {
@@ -379,157 +385,324 @@
   .name-kris::after {
     left: 50%;
     transform: translateX(-50%);
+    width: 120px;
   }
 
   .scroll-indicator {
     left: 50%;
+    bottom: 1.5rem;
   }
 
   .image-fade-overlay {
     background: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.4) 40%,
+      rgba(0, 0, 0, 0.2) 70%,
       rgba(242, 42, 42, 0.1) 100%
     );
   }
 
+  .hero-car-image {
+    object-position: center 60%;
+    transform: scale(1.05);
+  }
+
   .company-name {
     font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-actions {
+    width: 100%;
+    align-items: center;
   }
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 0.5rem 0;
+  }
+
   .hero-content {
-    padding: 1.5rem;
-  }
-
-  .hero-content-wrapper {
-    gap: 2rem;
-  }
-
-  .hero-image-section {
-    height: 35vh;
-  }
-
-  .contact-primary,
-  .contact-secondary {
-    max-width: 320px;
-    padding: 1.25rem 2rem;
-    font-size: 1rem;
-  }
-
-  .contact-primary {
-    font-size: 1.1rem;
-  }
-
-  .hero-extras {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .company-name {
-    font-size: clamp(2.2rem, 7vw, 3.5rem);
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-content {
-    padding: 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .hero-content-wrapper {
     gap: 1.8rem;
+    max-width: 100%;
   }
 
   .hero-image-section {
-    height: 32vh;
-  }
-
-  .contact-actions {
-    gap: 1.2rem;
+    height: 40vh;
+    border-radius: 1rem 1rem 0 0;
+    margin-top: 0.5rem;
   }
 
   .contact-primary,
   .contact-secondary {
-    max-width: 300px;
-    padding: 1.1rem 1.8rem;
-    font-size: 0.95rem;
+    width: 100%;
+    max-width: 350px;
+    padding: 1.4rem 2rem;
+    font-size: 1.05rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
   .contact-primary {
-    font-size: 1rem;
+    font-size: 1.15rem;
+    box-shadow: 0 12px 35px rgba(242, 42, 42, 0.35);
+  }
+
+  .contact-primary:hover,
+  .contact-secondary:hover {
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .hero-extras {
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .company-name {
-    font-size: clamp(2rem, 6.5vw, 3.2rem);
+    font-size: clamp(2.4rem, 7.5vw, 3.8rem);
+    line-height: 1.1;
+  }
+
+  .logo-o {
+    width: 0.85em;
+    height: 0.85em;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 0;
+  }
+
+  .hero-content {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .hero-content-wrapper {
+    gap: 1.6rem;
+  }
+
+  .hero-image-section {
+    height: 35vh;
+    border-radius: 0.8rem 0.8rem 0 0;
+  }
+
+  .contact-actions {
+    gap: 1rem;
+  }
+
+  .contact-primary,
+  .contact-secondary {
+    width: 100%;
+    max-width: 320px;
+    padding: 1.3rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 40px;
+    transition: all 0.2s ease;
+  }
+
+  .contact-primary {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .contact-primary:active,
+  .contact-secondary:active {
+    transform: scale(0.98);
+  }
+
+  .company-name {
+    font-size: clamp(2.2rem, 7vw, 3.4rem);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-extras {
+    gap: 1.2rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero-content {
-    padding: 0.8rem;
+    padding: 1rem 0.6rem;
   }
 
   .hero-content-wrapper {
-    gap: 1.5rem;
+    gap: 1.4rem;
   }
 
   .hero-image-section {
-    height: 30vh;
+    height: 32vh;
+    border-radius: 0.6rem 0.6rem 0 0;
   }
 
   .logo-o {
-    width: 0.7em;
-    height: 0.7em;
+    width: 0.75em;
+    height: 0.75em;
+    padding: 0.08em;
   }
 
   .name-kris::after {
-    width: 80px;
+    width: 90px;
+    height: 3px;
   }
 
   .contact-primary,
   .contact-secondary {
-    max-width: 280px;
-    padding: 1rem 1.5rem;
-    font-size: 0.9rem;
+    width: 100%;
+    max-width: 300px;
+    padding: 1.2rem 1.3rem;
+    font-size: 0.95rem;
+    border-radius: 35px;
   }
 
   .contact-primary {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   .contact-primary i,
   .contact-secondary i {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .scroll-indicator {
-    bottom: 1rem;
+    bottom: 1.2rem;
+  }
+
+  .scroll-arrow {
+    width: 40px;
+    height: 40px;
   }
 
   .company-name {
-    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-size: clamp(2rem, 6.8vw, 3rem);
+    letter-spacing: -0.01em;
   }
 
   .hero-extras {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    gap: 1rem;
+  }
+
+  .location-simple i,
+  .quality-badge i {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 360px) {
   .hero-content {
-    padding: 0.5rem;
+    padding: 0.8rem 0.4rem;
   }
 
   .hero-content-wrapper {
     gap: 1.2rem;
   }
 
+  .hero-image-section {
+    height: 30vh;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
   .contact-primary,
   .contact-secondary {
-    max-width: 260px;
-    padding: 0.9rem 1.3rem;
+    width: 100%;
+    max-width: 280px;
+    padding: 1.1rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 30px;
+  }
+
+  .contact-primary {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .contact-primary i,
+  .contact-secondary i {
+    font-size: 1.1rem;
+  }
+
+  .company-name {
+    font-size: clamp(1.8rem, 6.2vw, 2.6rem);
+  }
+
+  .name-kris::after {
+    width: 70px;
+    height: 2.5px;
+  }
+
+  .hero-extras {
+    font-size: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .scroll-arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .scroll-arrow i {
+    font-size: 1.1rem;
+  }
+}
+
+/* Enhanced landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100vh;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .hero-image-section {
+    width: 50%;
+    height: 100vh;
+    order: 2;
+    border-radius: 0;
+    margin-top: 0;
+  }
+
+  .hero-content {
+    width: 50%;
+    order: 1;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content-wrapper {
+    gap: 1.2rem;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .name-carrosserie {
+    justify-content: flex-start;
+  }
+
+  .name-kris::after {
+    left: 0;
+    transform: none;
+  }
+
+  .company-name {
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  }
+
+  .contact-primary,
+  .contact-secondary {
+    max-width: 280px;
+    padding: 0.8rem 1.3rem;
     font-size: 0.85rem;
   }
 
@@ -537,41 +710,15 @@
     font-size: 0.9rem;
   }
 
-  .company-name {
-    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+  .hero-extras {
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
   }
 
-  .name-kris::after {
-    width: 60px;
-  }
-}
-
-/* Landscape mobile optimization */
-@media (max-width: 768px) and (orientation: landscape) {
-  .hero-section {
-    min-height: 100vh;
-  }
-
-  .hero-image-section {
-    height: 50vh;
-  }
-
-  .hero-content {
-    padding: 1rem;
-  }
-
-  .hero-content-wrapper {
-    gap: 1.5rem;
-  }
-
-  .company-name {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-  }
-
-  .contact-primary,
-  .contact-secondary {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
+  .scroll-indicator {
+    left: 25%;
+    bottom: 1rem;
   }
 }
 
