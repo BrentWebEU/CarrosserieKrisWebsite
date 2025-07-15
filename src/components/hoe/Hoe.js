@@ -1,3 +1,16 @@
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHandshake,
+  faCalendarCheck,
+  faClipboardList,
+  faCar,
+  faPhone,
+  faShieldAlt,
+  faPhoneAlt,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import "./Hoe.css";
 
 export default function Hoe() {
