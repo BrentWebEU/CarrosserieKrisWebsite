@@ -290,33 +290,8 @@
   }
 }
 
-/* Animation Enhancements */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.partner-card:nth-child(odd) {
-  animation: float 8s ease-in-out infinite;
-  animation-delay: 0s;
-}
-
-.partner-card:nth-child(even) {
-  animation: float 8s ease-in-out infinite;
-  animation-delay: 4s;
-}
-
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
-  .partner-card {
-    animation: none;
-  }
-
   .partner-image,
   .partner-overlay,
   .btn-arrow {
