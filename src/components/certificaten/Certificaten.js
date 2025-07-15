@@ -5,6 +5,7 @@ import Axalta from "../../assets/img/partners/Axalta.jpg";
 import ARN from "../../assets/img/partners/ARN.png";
 import GOSMART from "../../assets/img/partners/GoSmart.22d9cb65f6eac8674677-removebg-preview.png";
 import Arval from "../../assets/img/partners/arval.png";
+import Slider from "react-infinite-logo-slider";
 
 export default function Certificaten() {
   const ref = useRef(null);
@@ -40,11 +41,7 @@ export default function Certificaten() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <PartnersGrid
-            activePartner={activePartner}
-            setActivePartner={setActivePartner}
-            isInView={isInView}
-          />
+          <PartnersSlider />
         </motion.div>
       </div>
     </section>
