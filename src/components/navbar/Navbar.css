@@ -408,6 +408,21 @@
   display: none !important;
 }
 
+/* Ensure mobile menu isn't constrained by any parent */
+.mobile-nav-overlay,
+.mobile-nav {
+  position: fixed !important;
+  max-height: 100vh !important;
+  max-width: 100vw !important;
+}
+
+/* Prevent any transforms or clips from affecting mobile menu */
+.mobile-nav-overlay {
+  transform: none !important;
+  clip: none !important;
+  clip-path: none !important;
+}
+
 /* Smooth scroll behavior */
 html {
   scroll-behavior: smooth;
