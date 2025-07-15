@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { motion, useInView, AnimatePresence } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import "./Certificaten.css";
 import Axalta from "../../assets/img/partners/Axalta.jpg";
 import ARN from "../../assets/img/partners/ARN.png";
