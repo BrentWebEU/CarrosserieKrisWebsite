@@ -316,27 +316,6 @@
   }
 }
 
-/* Animation Enhancements */
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.logo-container:nth-child(odd) {
-  animation: float 6s ease-in-out infinite;
-  animation-delay: 0s;
-}
-
-.logo-container:nth-child(even) {
-  animation: float 6s ease-in-out infinite;
-  animation-delay: 3s;
-}
-
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .logo-container,
