@@ -340,10 +340,31 @@
 
   .mobile-menu-toggle {
     display: flex;
+    z-index: 10002;
+    position: relative;
   }
 
   .navbar-container {
     padding: 1rem 1.5rem;
+  }
+
+  /* Ensure mobile menu is not clipped */
+  .modern-navbar {
+    overflow: visible;
+  }
+
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+  }
+
+  .mobile-nav {
+    position: fixed;
+    z-index: 10001;
   }
 }
 
