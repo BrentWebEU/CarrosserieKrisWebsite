@@ -30,29 +30,6 @@ export default function About() {
     },
   ];
 
-  const values = [
-    {
-      icon: "🤝",
-      title: "Klantvriendelijkheid",
-      description: "Persoonlijke service en transparante communicatie",
-    },
-    {
-      icon: "❤️",
-      title: "Passie",
-      description: "Liefde voor het vak en oog voor detail",
-    },
-    {
-      icon: "🎯",
-      title: "Ambitie",
-      description: "Voortdurend streven naar verbetering en innovatie",
-    },
-    {
-      icon: "⚡",
-      title: "Innovatie",
-      description: "Moderne technieken voor elektrische en hybride voertuigen",
-    },
-  ];
-
   return (
     <section id="about" className="about-section" ref={ref}>
       <div className="about-container">
@@ -153,7 +130,6 @@ export default function About() {
                 }
                 transition={{ duration: 0.6, delay: 1.4 }}
               >
-                <div className="highlight-icon">⚡</div>
                 <div className="highlight-text">
                   <h4>Klaar voor de toekomst</h4>
                   <p>
@@ -192,36 +168,6 @@ export default function About() {
                   <h4>{milestone.title}</h4>
                   <p>{milestone.description}</p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Values */}
-        <motion.div
-          className="values-section"
-          initial={{ opacity: 0, y: 50 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 0.8, delay: 2.0 }}
-        >
-          <h3 className="values-title">Onze kernwaarden</h3>
-          <div className="values-grid">
-            {values.map((value, index) => (
-              <motion.div
-                key={index}
-                className="value-card"
-                initial={{ opacity: 0, y: 30, scale: 0.9 }}
-                animate={
-                  isInView
-                    ? { opacity: 1, y: 0, scale: 1 }
-                    : { opacity: 0, y: 30, scale: 0.9 }
-                }
-                transition={{ duration: 0.6, delay: 2.2 + index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <div className="value-icon">{value.icon}</div>
-                <h4 className="value-title">{value.title}</h4>
-                <p className="value-description">{value.description}</p>
               </motion.div>
             ))}
           </div>
