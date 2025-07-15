@@ -706,17 +706,24 @@
   }
 
   .hero-image-section {
-    width: 50%;
-    height: 100vh;
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    width: 160px;
+    height: 160px;
     order: 2;
-    border-radius: 0;
-    margin-top: 0;
+    border-radius: 50%;
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.4),
+      0 0 0 4px rgba(242, 42, 42, 0.1),
+      0 0 0 8px rgba(255, 255, 255, 0.02);
   }
 
   .hero-content {
-    width: 50%;
+    width: 70%;
     order: 1;
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 2rem;
     display: flex;
     align-items: center;
   }
@@ -758,7 +765,7 @@
   }
 
   .scroll-indicator {
-    left: 25%;
+    left: 35%;
     bottom: 1rem;
   }
 }
