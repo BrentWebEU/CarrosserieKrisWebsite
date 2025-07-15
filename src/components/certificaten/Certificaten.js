@@ -10,7 +10,6 @@ import Slider from "react-infinite-logo-slider";
 export default function Certificaten() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-10%" });
-  const [activePartner, setActivePartner] = useState(null);
 
   return (
     <section id="partners" className="partners-section" ref={ref}>
@@ -34,9 +33,9 @@ export default function Certificaten() {
           </motion.h2>
         </motion.div>
 
-        {/* Partners Grid */}
+        {/* Partners Slider */}
         <motion.div
-          className="partners-grid"
+          className="partners-slider-wrapper"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -48,73 +47,39 @@ export default function Certificaten() {
   );
 }
 
-const PartnersGrid = ({ activePartner, setActivePartner, isInView }) => {
+const PartnersSlider = () => {
   const partners = [
-    {
-      name: "Axalta",
-      img: Axalta,
-    },
-    {
-      name: "ARN",
-      img: ARN,
-    },
-    {
-      name: "GOSMART",
-      img: GOSMART,
-    },
-    {
-      name: "Arval",
-      img: Arval,
-    },
+    { name: "Axalta", img: Axalta },
+    { name: "ARN", img: ARN },
+    { name: "GOSMART", img: GOSMART },
+    { name: "Arval", img: Arval },
   ];
 
   return (
-    <>
-      <div className="partners-cards">
+    <div className="partners-slider">
+      <Slider
+        width="250px"
+        duration={40}
+        pauseOnHover={true}
+        blurBorders={true}
+        blurBorderColor={"#f8f9fa"}
+      >
         {partners.map((partner, index) => (
-          <motion.div
-            key={partner.name}
-            className={`partner-card ${activePartner === index ? "active" : ""}`}
-            initial={{ opacity: 0, y: 50, scale: 0.9 }}
-            animate={
-              isInView
-                ? {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: {
-                      duration: 0.6,
-                      delay: index * 0.1 + 0.8,
-                      ease: "easeOut",
-                    },
-                  }
-                : { opacity: 0, y: 50, scale: 0.9 }
-            }
-            whileHover={{
-              y: -10,
-              transition: { duration: 0.3 },
-            }}
-            onClick={() =>
-              setActivePartner(activePartner === index ? null : index)
-            }
-          >
-            <div className="partner-card-inner">
-              <div className="partner-image-container">
-                <img
-                  src={partner.img}
-                  alt={partner.name}
-                  className="partner-image"
-                  loading="lazy"
-                />
-              </div>
-
-              <div className="partner-content">
-                <h3 className="partner-name">{partner.name}</h3>
+          <Slider.Slide key={index} className="partner-slide">
+            <div className="partner-logo-container">
+              <img
+                src={partner.img}
+                alt={partner.name}
+                className="partner-logo-image"
+                loading="lazy"
+              />
+              <div className="partner-overlay">
+                <span className="partner-logo-name">{partner.name}</span>
               </div>
             </div>
-          </motion.div>
+          </Slider.Slide>
         ))}
-      </div>
-    </>
+      </Slider>
+    </div>
   );
 };
