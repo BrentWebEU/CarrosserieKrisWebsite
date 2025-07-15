@@ -6,6 +6,9 @@
   background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
   display: flex;
   align-items: center;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* Dark background */
@@ -185,6 +188,11 @@
   position: relative;
   overflow: hidden;
   max-width: 400px;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: pointer;
 }
 
 .contact-primary::before,
@@ -291,6 +299,10 @@
   color: rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
   cursor: pointer;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .scroll-arrow:hover {
@@ -730,6 +742,35 @@
   outline-offset: 4px;
 }
 
+/* Mobile-specific touch feedback */
+@media (max-width: 768px) {
+  .contact-primary:active {
+    background: linear-gradient(45deg, #d42424, #e63946);
+    transform: scale(0.98);
+  }
+
+  .contact-secondary:active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(0.98);
+  }
+
+  .scroll-arrow:active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(0.95);
+  }
+
+  /* Improved touch target sizes */
+  .contact-primary,
+  .contact-secondary {
+    min-height: 56px; /* iOS/Android recommended touch target */
+  }
+
+  .scroll-arrow {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
 /* Animation enhancements */
 @keyframes glow {
   0%,
@@ -745,10 +786,20 @@
   animation: glow 2s ease-in-out infinite;
 }
 
-/* Image hover effect */
-.hero-section:hover .hero-car-image {
-  filter: brightness(0.9) contrast(1.2);
-  transform: scale(1.02);
+/* Image hover effect (desktop only) */
+@media (min-width: 769px) {
+  .hero-section:hover .hero-car-image {
+    filter: brightness(0.9) contrast(1.2);
+    transform: scale(1.02);
+  }
+}
+
+/* Mobile image optimization */
+@media (max-width: 768px) {
+  .hero-car-image {
+    filter: brightness(0.85) contrast(1.1);
+    transition: filter 0.3s ease;
+  }
 }
 
 /* Print styles */
