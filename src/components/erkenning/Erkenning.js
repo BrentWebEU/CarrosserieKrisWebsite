@@ -13,7 +13,6 @@ import KBC from "../../assets/img/erkenningen/cq5dam.web.480.9999.png";
 import Vivium from "../../assets/img/erkenningen/vivium-pv.png";
 import Ethias from "../../assets/img/erkenningen/Ethias.png";
 import Argenta from "../../assets/img/erkenningen/Argenta.png";
-import Slider from "react-infinite-logo-slider";
 
 export default function Erkenning() {
   const ref = useRef(null);
@@ -49,20 +48,20 @@ export default function Erkenning() {
           </motion.p>
         </motion.div>
 
-        {/* Logos Slider */}
+        {/* Logos Grid */}
         <motion.div
-          className="erkenning-slider-wrapper"
+          className="erkenning-grid-wrapper"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Component />
+          <Component isInView={isInView} />
         </motion.div>
       </div>
     </section>
   );
 }
-const Component = () => {
+const Component = ({ isInView }) => {
   const erkend = [
     { name: "Baloise", img: Baloise },
     { name: "Belfius", img: Belfius },
@@ -79,30 +78,38 @@ const Component = () => {
   ];
 
   return (
-    <div className="erkenning-slider">
-      <Slider
-        width="200px"
-        duration={50}
-        pauseOnHover={true}
-        blurBorders={true}
-        blurBorderColor={"#f8f9fa"}
-      >
-        {erkend.map((item, index) => (
-          <Slider.Slide key={index} className="erkenning-slide">
-            <div className="logo-container">
-              <img
-                src={item.img}
-                alt={`${item.name} - Erkend hersteller`}
-                className="logo-image"
-                loading="lazy"
-              />
-              <div className="logo-overlay">
-                <span className="logo-name">{item.name}</span>
-              </div>
-            </div>
-          </Slider.Slide>
-        ))}
-      </Slider>
+    <div className="erkenning-grid">
+      {erkend.map((item, index) => (
+        <motion.div
+          key={index}
+          className="erkenning-card"
+          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+          animate={
+            isInView
+              ? {
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  transition: {
+                    duration: 0.6,
+                    delay: index * 0.05 + 0.8,
+                    ease: "easeOut",
+                  },
+                }
+              : { opacity: 0, y: 30, scale: 0.9 }
+          }
+        >
+          <div className="logo-container">
+            <img
+              src={item.img}
+              alt={`${item.name} - Erkend hersteller`}
+              className="logo-image"
+              loading="lazy"
+            />
+          </div>
+          <div className="logo-name">{item.name}</div>
+        </motion.div>
+      ))}
     </div>
   );
 };
