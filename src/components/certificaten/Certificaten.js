@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import "./Certificaten.css";
 import Axalta from "../../assets/img/partners/Axalta.jpg";

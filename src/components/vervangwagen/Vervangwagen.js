@@ -2,9 +2,7 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCar,
   faShieldAlt,
-  faHandshake,
   faCalendarCheck,
   faClock,
   faEuroSign,
