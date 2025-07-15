@@ -123,17 +123,6 @@ export default function Navbar() {
             <span className="contact-text">Bel nu</span>
           </a>
         </motion.div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className={`mobile-menu-toggle ${mobileMenuOpen ? "active" : ""}`}
-          onClick={toggleMobileMenu}
-          aria-label="Toggle mobile menu"
-        >
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-        </button>
       </div>
 
       {/* Mobile Navigation */}
