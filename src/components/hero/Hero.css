@@ -360,26 +360,35 @@
     flex-direction: column;
     text-align: center;
     min-height: 100vh;
-    padding: 1rem 0;
+    padding: 0;
+    position: relative;
   }
 
   .hero-image-section {
-    position: relative;
-    width: 100%;
-    height: 45vh;
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
     order: 2;
-    border-radius: 1.5rem 1.5rem 0 0;
+    border-radius: 50%;
     overflow: hidden;
-    margin-top: 1rem;
+    z-index: 1;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 0 8px rgba(242, 42, 42, 0.1),
+      0 0 0 16px rgba(255, 255, 255, 0.03);
   }
 
   .hero-content {
     width: 100%;
-    padding: 2rem 1.5rem;
+    padding: 320px 1.5rem 2rem;
     order: 1;
     z-index: 10;
     display: flex;
     justify-content: center;
+    position: relative;
   }
 
   .hero-content-wrapper {
@@ -402,22 +411,23 @@
 
   .scroll-indicator {
     left: 50%;
-    bottom: 1.5rem;
+    bottom: 2rem;
+    z-index: 20;
   }
 
   .image-fade-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.7) 0%,
-      rgba(0, 0, 0, 0.4) 40%,
-      rgba(0, 0, 0, 0.2) 70%,
-      rgba(242, 42, 42, 0.1) 100%
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 70%,
+      rgba(242, 42, 42, 0.2) 100%
     );
   }
 
   .hero-car-image {
-    object-position: center 60%;
-    transform: scale(1.05);
+    object-position: center center;
+    transform: scale(1.2);
+    filter: brightness(0.9) contrast(1.1) saturate(1.1);
   }
 
   .company-name {
@@ -433,11 +443,11 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    padding: 0.5rem 0;
+    padding: 0;
   }
 
   .hero-content {
-    padding: 1.5rem 1rem;
+    padding: 280px 1rem 1.5rem;
   }
 
   .hero-content-wrapper {
@@ -446,9 +456,13 @@
   }
 
   .hero-image-section {
-    height: 40vh;
-    border-radius: 1rem 1rem 0 0;
-    margin-top: 0.5rem;
+    top: 8vh;
+    width: 240px;
+    height: 240px;
+    box-shadow:
+      0 15px 45px rgba(0, 0, 0, 0.4),
+      0 0 0 6px rgba(242, 42, 42, 0.1),
+      0 0 0 12px rgba(255, 255, 255, 0.02);
   }
 
   .contact-primary,
@@ -495,7 +509,7 @@
   }
 
   .hero-content {
-    padding: 1.2rem 0.8rem;
+    padding: 250px 0.8rem 1.2rem;
   }
 
   .hero-content-wrapper {
@@ -503,8 +517,13 @@
   }
 
   .hero-image-section {
-    height: 35vh;
-    border-radius: 0.8rem 0.8rem 0 0;
+    top: 6vh;
+    width: 200px;
+    height: 200px;
+    box-shadow:
+      0 12px 35px rgba(0, 0, 0, 0.4),
+      0 0 0 5px rgba(242, 42, 42, 0.1),
+      0 0 0 10px rgba(255, 255, 255, 0.02);
   }
 
   .contact-actions {
@@ -544,7 +563,7 @@
 
 @media (max-width: 480px) {
   .hero-content {
-    padding: 1rem 0.6rem;
+    padding: 220px 0.6rem 1rem;
   }
 
   .hero-content-wrapper {
@@ -552,8 +571,13 @@
   }
 
   .hero-image-section {
-    height: 32vh;
-    border-radius: 0.6rem 0.6rem 0 0;
+    top: 5vh;
+    width: 180px;
+    height: 180px;
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.4),
+      0 0 0 4px rgba(242, 42, 42, 0.1),
+      0 0 0 8px rgba(255, 255, 255, 0.02);
   }
 
   .logo-o {
@@ -587,7 +611,7 @@
   }
 
   .scroll-indicator {
-    bottom: 1.2rem;
+    bottom: 1.5rem;
   }
 
   .scroll-arrow {
@@ -613,7 +637,7 @@
 
 @media (max-width: 360px) {
   .hero-content {
-    padding: 0.8rem 0.4rem;
+    padding: 200px 0.4rem 0.8rem;
   }
 
   .hero-content-wrapper {
@@ -621,8 +645,13 @@
   }
 
   .hero-image-section {
-    height: 30vh;
-    border-radius: 0.5rem 0.5rem 0 0;
+    top: 4vh;
+    width: 160px;
+    height: 160px;
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.4),
+      0 0 0 3px rgba(242, 42, 42, 0.1),
+      0 0 0 6px rgba(255, 255, 255, 0.02);
   }
 
   .contact-primary,
