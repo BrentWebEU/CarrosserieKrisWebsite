@@ -1,57 +1,231 @@
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import "./About.css";
 import KrisKatrien from "../../assets/img/KrisKatrien.jpg";
 
 export default function About() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-10%" });
+
+  const milestones = [
+    {
+      year: "2018",
+      title: "Oprichting",
+      description: "Kris Schoenmakers richtte Carrosserie Kris op",
+    },
+    {
+      year: "2020",
+      title: "Uitbreiding team",
+      description: "Katrien sluit zich aan bij het bedrijf",
+    },
+    {
+      year: "2023",
+      title: "Nieuwe locatie",
+      description: "Verhuizing naar modern bedrijvencomplex",
+    },
+    {
+      year: "2023",
+      title: "Eurogarant label",
+      description: "Behaalde het Eurogarant kwaliteitslabel",
+    },
+  ];
+
+  const values = [
+    {
+      icon: "🤝",
+      title: "Klantvriendelijkheid",
+      description: "Persoonlijke service en transparante communicatie",
+    },
+    {
+      icon: "❤️",
+      title: "Passie",
+      description: "Liefde voor het vak en oog voor detail",
+    },
+    {
+      icon: "🎯",
+      title: "Ambitie",
+      description: "Voortdurend streven naar verbetering en innovatie",
+    },
+    {
+      icon: "⚡",
+      title: "Innovatie",
+      description: "Moderne technieken voor elektrische en hybride voertuigen",
+    },
+  ];
+
   return (
-    <section id="about" className="quality-area pt-100">
-      <div className="section-title">
-        <span className="sub-title">Over ons</span>
-        <h2>Over ons</h2>
-      </div>
-      <div className="container-fluid p-0">
-        <div className="row m-0 align-items-center">
-          <div className="col-lg-6 p-0" style={{ textAlign: "center" }}>
-            <div className="quality-img">
-              <div className="quality-img-container">
-                <img src={KrisKatrien} alt="Kadett" />
+    <section id="about" className="about-section" ref={ref}>
+      <div className="about-container">
+        {/* Section Header */}
+        <motion.div
+          className="about-header"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <motion.span
+            className="about-subtitle"
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={
+              isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+            }
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Over ons
+          </motion.span>
+          <motion.h2
+            className="about-title"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Ons verhaal
+          </motion.h2>
+        </motion.div>
+
+        {/* Main Content */}
+        <div className="about-main">
+          {/* Image Section */}
+          <motion.div
+            className="about-image-section"
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            <div className="image-wrapper">
+              <img
+                src={KrisKatrien}
+                alt="Kris en Katrien - Carrosserie Kris"
+                className="about-image"
+              />
+              <div className="image-overlay">
+                <div className="overlay-content">
+                  <h3>Kris & Katrien</h3>
+                  <p>De drijvende krachten achter Carrosserie Kris</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="col-lg-6 p-0">
-            <div className="quality-content">
-              <div className="section-title">
-                <p>
-                  Carrosserie Kris werd in 2018 opgericht door Kris
-                  Schoenmakers. Kris stampte de carrosserie uit het niets uit de
-                  grond. Een grote sprong maar één die hij zich nog geen moment
-                  beklaagde. Sinds 2020 is ook zijn vrouw Katrien mee werkzaam
-                  in de carrosserie. Zij houdt zich voornamelijk bezig met de
-                  boekhouding en administratie.
-                </p>
-                <p>
-                  Begin 2023 kwam er een grondige metamorfose van de
-                  carrosserie. Ze verhuisde van de achterkant van een voormalige
-                  garage naar de voorkant van een modern bedrijvencomplex.
-                  Carrosserie Kris is gelegen op een unieke locatie op 3 minuten
-                  van afrit 20 van de E313 tussen Nijlen en Herentals.
-                </p>
-                <p>
-                  Het bedrijvencomplex beschikt over een ruime parking met
-                  laadpalen. In augustus 2023 behaalde de carrosserie het
-                  Eurogarant kwaliteitslabel. Ook werd er aangesloten bij het
-                  commerciële netwerk Go Smart en ARN.
-                </p>
-                <p>
-                  Door het continu bijscholen van de medewerkers kan u ook met
-                  een gerust hart uw elektrische of hybride wagen bij
-                  Carrosserie Kris laten herstellen. Klantvriendelijkheid,
-                  passie en de nodige portie ambitie zijn de kernwaarden van
-                  Carrosserie Kris.
-                </p>
-              </div>
+          </motion.div>
+
+          {/* Content Section */}
+          <motion.div
+            className="about-content-section"
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
+            <div className="story-content">
+              <motion.p
+                className="story-paragraph"
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.6, delay: 1.0 }}
+              >
+                Carrosserie Kris werd in 2018 opgericht door Kris Schoenmakers.
+                Een ondernemingsavontuur dat uit het niets werd opgebouwd met
+                passie en toewijding. Sinds 2020 vormt Katrien een essentieel
+                onderdeel van het team.
+              </motion.p>
+
+              <motion.p
+                className="story-paragraph"
+                initial={{ opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
+                transition={{ duration: 0.6, delay: 1.2 }}
+              >
+                In 2023 verhuisden we naar een moderne locatie in een
+                bedrijvencomplex, strategisch gelegen nabij afrit 20 van de
+                E313. Met ruime parking, laadpalen en het Eurogarant
+                kwaliteitslabel zijn we klaar voor de toekomst.
+              </motion.p>
+
+              <motion.div
+                className="highlight-box"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={
+                  isInView
+                    ? { opacity: 1, scale: 1 }
+                    : { opacity: 0, scale: 0.95 }
+                }
+                transition={{ duration: 0.6, delay: 1.4 }}
+              >
+                <div className="highlight-icon">⚡</div>
+                <div className="highlight-text">
+                  <h4>Klaar voor de toekomst</h4>
+                  <p>
+                    Gespecialiseerd in elektrische en hybride voertuigen door
+                    continue bijscholing
+                  </p>
+                </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
+
+        {/* Timeline */}
+        <motion.div
+          className="timeline-section"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: 1.6 }}
+        >
+          <h3 className="timeline-title">Onze mijlpalen</h3>
+          <div className="timeline">
+            {milestones.map((milestone, index) => (
+              <motion.div
+                key={index}
+                className="timeline-item"
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
+                animate={
+                  isInView
+                    ? { opacity: 1, x: 0 }
+                    : { opacity: 0, x: index % 2 === 0 ? -30 : 30 }
+                }
+                transition={{ duration: 0.6, delay: 1.8 + index * 0.1 }}
+              >
+                <div className="timeline-year">{milestone.year}</div>
+                <div className="timeline-content">
+                  <h4>{milestone.title}</h4>
+                  <p>{milestone.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Values */}
+        <motion.div
+          className="values-section"
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: 2.0 }}
+        >
+          <h3 className="values-title">Onze kernwaarden</h3>
+          <div className="values-grid">
+            {values.map((value, index) => (
+              <motion.div
+                key={index}
+                className="value-card"
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                animate={
+                  isInView
+                    ? { opacity: 1, y: 0, scale: 1 }
+                    : { opacity: 0, y: 30, scale: 0.9 }
+                }
+                transition={{ duration: 0.6, delay: 2.2 + index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <div className="value-icon">{value.icon}</div>
+                <h4 className="value-title">{value.title}</h4>
+                <p className="value-description">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
