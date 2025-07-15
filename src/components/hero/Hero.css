@@ -6,6 +6,9 @@
   background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
   display: flex;
   align-items: center;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 /* Dark background */
@@ -185,6 +188,11 @@
   position: relative;
   overflow: hidden;
   max-width: 400px;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
+  cursor: pointer;
 }
 
 .contact-primary::before,
@@ -291,6 +299,10 @@
   color: rgba(255, 255, 255, 0.5);
   transition: all 0.3s ease;
   cursor: pointer;
+  /* Mobile touch optimization */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  user-select: none;
 }
 
 .scroll-arrow:hover {
@@ -303,7 +315,7 @@
   font-size: 1.3rem;
 }
 
-/* Enhanced Responsive Design */
+/* Enhanced Mobile-First Responsive Design */
 @media (max-width: 1400px) {
   .hero-content {
     padding: 0 2.5rem;
@@ -348,20 +360,35 @@
     flex-direction: column;
     text-align: center;
     min-height: 100vh;
+    padding: 0;
+    position: relative;
   }
 
   .hero-image-section {
-    position: relative;
-    width: 100%;
-    height: 40vh;
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    height: 280px;
     order: 2;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 0 8px rgba(242, 42, 42, 0.1),
+      0 0 0 16px rgba(255, 255, 255, 0.03);
   }
 
   .hero-content {
     width: 100%;
-    padding: 2rem;
+    padding: 320px 1.5rem 2rem;
     order: 1;
     z-index: 10;
+    display: flex;
+    justify-content: center;
+    position: relative;
   }
 
   .hero-content-wrapper {
@@ -369,7 +396,7 @@
     text-align: center;
     max-width: 600px;
     margin: 0 auto;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .name-carrosserie {
@@ -379,157 +406,351 @@
   .name-kris::after {
     left: 50%;
     transform: translateX(-50%);
+    width: 120px;
   }
 
   .scroll-indicator {
     left: 50%;
+    bottom: 2rem;
+    z-index: 100;
   }
 
   .image-fade-overlay {
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.3) 50%,
-      rgba(242, 42, 42, 0.1) 100%
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.6) 70%,
+      rgba(242, 42, 42, 0.2) 100%
     );
+  }
+
+  .hero-car-image {
+    object-position: center center;
+    transform: scale(1.2);
+    filter: brightness(0.9) contrast(1.1) saturate(1.1);
   }
 
   .company-name {
     font-size: clamp(2.5rem, 8vw, 4rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-actions {
+    width: 100%;
+    align-items: center;
   }
 }
 
 @media (max-width: 768px) {
+  .hero-section {
+    padding: 0;
+  }
+
   .hero-content {
-    padding: 1.5rem;
-  }
-
-  .hero-content-wrapper {
-    gap: 2rem;
-  }
-
-  .hero-image-section {
-    height: 35vh;
-  }
-
-  .contact-primary,
-  .contact-secondary {
-    max-width: 320px;
-    padding: 1.25rem 2rem;
-    font-size: 1rem;
-  }
-
-  .contact-primary {
-    font-size: 1.1rem;
-  }
-
-  .hero-extras {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .company-name {
-    font-size: clamp(2.2rem, 7vw, 3.5rem);
-  }
-}
-
-@media (max-width: 640px) {
-  .hero-content {
-    padding: 1rem;
+    padding: 280px 1rem 1.5rem;
   }
 
   .hero-content-wrapper {
     gap: 1.8rem;
+    max-width: 100%;
   }
 
   .hero-image-section {
-    height: 32vh;
-  }
-
-  .contact-actions {
-    gap: 1.2rem;
+    top: 8vh;
+    width: 240px;
+    height: 240px;
+    box-shadow:
+      0 15px 45px rgba(0, 0, 0, 0.4),
+      0 0 0 6px rgba(242, 42, 42, 0.1),
+      0 0 0 12px rgba(255, 255, 255, 0.02);
   }
 
   .contact-primary,
   .contact-secondary {
-    max-width: 300px;
-    padding: 1.1rem 1.8rem;
-    font-size: 0.95rem;
+    width: 100%;
+    max-width: 350px;
+    padding: 1.4rem 2rem;
+    font-size: 1.05rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   }
 
   .contact-primary {
-    font-size: 1rem;
+    font-size: 1.15rem;
+    box-shadow: 0 12px 35px rgba(242, 42, 42, 0.35);
+  }
+
+  .contact-primary:hover,
+  .contact-secondary:hover {
+    transform: translateY(-3px) scale(1.02);
+  }
+
+  .hero-extras {
+    flex-direction: row;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 
   .company-name {
-    font-size: clamp(2rem, 6.5vw, 3.2rem);
+    font-size: clamp(2.4rem, 7.5vw, 3.8rem);
+    line-height: 1.1;
+  }
+
+  .logo-o {
+    width: 0.85em;
+    height: 0.85em;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    padding: 0;
+  }
+
+  .hero-content {
+    padding: 250px 0.8rem 1.2rem;
+  }
+
+  .hero-content-wrapper {
+    gap: 1.6rem;
+  }
+
+  .hero-image-section {
+    top: 6vh;
+    width: 200px;
+    height: 200px;
+    box-shadow:
+      0 12px 35px rgba(0, 0, 0, 0.4),
+      0 0 0 5px rgba(242, 42, 42, 0.1),
+      0 0 0 10px rgba(255, 255, 255, 0.02);
+  }
+
+  .contact-actions {
+    gap: 1rem;
+  }
+
+  .contact-primary,
+  .contact-secondary {
+    width: 100%;
+    max-width: 320px;
+    padding: 1.3rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 40px;
+    transition: all 0.2s ease;
+  }
+
+  .contact-primary {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .contact-primary:active,
+  .contact-secondary:active {
+    transform: scale(0.98);
+  }
+
+  .company-name {
+    font-size: clamp(2.2rem, 7vw, 3.4rem);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-extras {
+    gap: 1.2rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
   .hero-content {
-    padding: 0.8rem;
+    padding: 220px 0.6rem 1rem;
   }
 
   .hero-content-wrapper {
-    gap: 1.5rem;
+    gap: 1.4rem;
   }
 
   .hero-image-section {
-    height: 30vh;
+    top: 5vh;
+    width: 180px;
+    height: 180px;
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.4),
+      0 0 0 4px rgba(242, 42, 42, 0.1),
+      0 0 0 8px rgba(255, 255, 255, 0.02);
   }
 
   .logo-o {
-    width: 0.7em;
-    height: 0.7em;
+    width: 0.75em;
+    height: 0.75em;
+    padding: 0.08em;
   }
 
   .name-kris::after {
-    width: 80px;
+    width: 90px;
+    height: 3px;
   }
 
   .contact-primary,
   .contact-secondary {
-    max-width: 280px;
-    padding: 1rem 1.5rem;
-    font-size: 0.9rem;
+    width: 100%;
+    max-width: 300px;
+    padding: 1.2rem 1.3rem;
+    font-size: 0.95rem;
+    border-radius: 35px;
   }
 
   .contact-primary {
-    font-size: 0.95rem;
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   .contact-primary i,
   .contact-secondary i {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 
   .scroll-indicator {
-    bottom: 1rem;
+    bottom: 1.5rem;
+  }
+
+  .scroll-arrow {
+    width: 40px;
+    height: 40px;
   }
 
   .company-name {
-    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    font-size: clamp(2rem, 6.8vw, 3rem);
+    letter-spacing: -0.01em;
   }
 
   .hero-extras {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    gap: 1rem;
+  }
+
+  .location-simple i,
+  .quality-badge i {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 360px) {
   .hero-content {
-    padding: 0.5rem;
+    padding: 200px 0.4rem 0.8rem;
   }
 
   .hero-content-wrapper {
     gap: 1.2rem;
   }
 
+  .hero-image-section {
+    top: 4vh;
+    width: 160px;
+    height: 160px;
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.4),
+      0 0 0 3px rgba(242, 42, 42, 0.1),
+      0 0 0 6px rgba(255, 255, 255, 0.02);
+  }
+
   .contact-primary,
   .contact-secondary {
-    max-width: 260px;
-    padding: 0.9rem 1.3rem;
+    width: 100%;
+    max-width: 280px;
+    padding: 1.1rem 1.2rem;
+    font-size: 0.9rem;
+    border-radius: 30px;
+  }
+
+  .contact-primary {
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .contact-primary i,
+  .contact-secondary i {
+    font-size: 1.1rem;
+  }
+
+  .company-name {
+    font-size: clamp(1.8rem, 6.2vw, 2.6rem);
+  }
+
+  .name-kris::after {
+    width: 70px;
+    height: 2.5px;
+  }
+
+  .hero-extras {
+    font-size: 0.8rem;
+    gap: 0.8rem;
+  }
+
+  .scroll-arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .scroll-arrow i {
+    font-size: 1.1rem;
+  }
+}
+
+/* Enhanced landscape mobile optimization */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero-section {
+    min-height: 100vh;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .hero-image-section {
+    position: absolute;
+    top: 50%;
+    right: 8%;
+    transform: translateY(-50%);
+    width: 160px;
+    height: 160px;
+    order: 2;
+    border-radius: 50%;
+    box-shadow:
+      0 8px 25px rgba(0, 0, 0, 0.4),
+      0 0 0 4px rgba(242, 42, 42, 0.1),
+      0 0 0 8px rgba(255, 255, 255, 0.02);
+  }
+
+  .hero-content {
+    width: 70%;
+    order: 1;
+    padding: 1rem 1rem 1rem 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-content-wrapper {
+    gap: 1.2rem;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .name-carrosserie {
+    justify-content: flex-start;
+  }
+
+  .name-kris::after {
+    left: 0;
+    transform: none;
+  }
+
+  .company-name {
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  }
+
+  .contact-primary,
+  .contact-secondary {
+    max-width: 280px;
+    padding: 0.8rem 1.3rem;
     font-size: 0.85rem;
   }
 
@@ -537,41 +758,15 @@
     font-size: 0.9rem;
   }
 
-  .company-name {
-    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+  .hero-extras {
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: flex-start;
   }
 
-  .name-kris::after {
-    width: 60px;
-  }
-}
-
-/* Landscape mobile optimization */
-@media (max-width: 768px) and (orientation: landscape) {
-  .hero-section {
-    min-height: 100vh;
-  }
-
-  .hero-image-section {
-    height: 50vh;
-  }
-
-  .hero-content {
-    padding: 1rem;
-  }
-
-  .hero-content-wrapper {
-    gap: 1.5rem;
-  }
-
-  .company-name {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-  }
-
-  .contact-primary,
-  .contact-secondary {
-    padding: 0.8rem 1.5rem;
-    font-size: 0.9rem;
+  .scroll-indicator {
+    left: 35%;
+    bottom: 1rem;
   }
 }
 
@@ -581,6 +776,94 @@
 .scroll-arrow:focus {
   outline: 2px solid #f22a2a;
   outline-offset: 4px;
+}
+
+/* Mobile-specific touch feedback */
+@media (max-width: 768px) {
+  .contact-primary:active {
+    background: linear-gradient(45deg, #d42424, #e63946);
+    transform: scale(0.98);
+  }
+
+  .contact-secondary:active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(0.98);
+  }
+
+  .scroll-arrow:active {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(0.95);
+  }
+
+  /* Improved touch target sizes */
+  .contact-primary,
+  .contact-secondary {
+    min-height: 56px; /* iOS/Android recommended touch target */
+  }
+
+  .scroll-arrow {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Circular design background decorations */
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(
+        circle at 50% 15%,
+        rgba(242, 42, 42, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(255, 255, 255, 0.02) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 90%,
+        rgba(242, 42, 42, 0.05) 0%,
+        transparent 50%
+      );
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Enhanced image container with pulsing ring */
+  .hero-image-section::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    background: linear-gradient(
+      45deg,
+      rgba(242, 42, 42, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(242, 42, 42, 0.1) 100%
+    );
+    animation: pulse-ring 3s ease-in-out infinite;
+    z-index: -1;
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
 }
 
 /* Animation enhancements */
@@ -598,10 +881,20 @@
   animation: glow 2s ease-in-out infinite;
 }
 
-/* Image hover effect */
-.hero-section:hover .hero-car-image {
-  filter: brightness(0.9) contrast(1.2);
-  transform: scale(1.02);
+/* Image hover effect (desktop only) */
+@media (min-width: 769px) {
+  .hero-section:hover .hero-car-image {
+    filter: brightness(0.9) contrast(1.2);
+    transform: scale(1.02);
+  }
+}
+
+/* Mobile image optimization */
+@media (max-width: 768px) {
+  .hero-car-image {
+    filter: brightness(0.85) contrast(1.1);
+    transition: filter 0.3s ease;
+  }
 }
 
 /* Print styles */

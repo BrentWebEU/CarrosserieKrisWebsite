@@ -1,152 +1,165 @@
-.vervangwagen-area {
-  background-color: #000000;
-  position: relative;
+.vervangwagen-section {
+  padding: 80px 0;
+  background: #1a1a1a;
+  color: white;
+}
+
+.vervangwagen-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.vervangwagen-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  margin: 0 0 2rem;
+}
+
+.vervangwagen-text-content {
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.vervangwagen-text-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.vervangwagen-text-content p:last-child {
+  margin-bottom: 0;
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.car-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.car-card:hover {
+  transform: translateY(-8px);
+  border-color: #f22a2a;
+  box-shadow: 0 10px 30px rgba(242, 42, 42, 0.3);
+}
+
+.car-card.placeholder {
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.car-card.placeholder:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.car-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.placeholder-image {
+  width: 100%;
+  height: 220px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.vervangwagen-img .swiper-wrapper {
-  width: 500px;
-  height: 500px;
+.car-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-.vervangwagen-area .vervangwagen-img img {
-  position: absolute;
+.placeholder-image span {
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
-.vervangwagen-area .vervangwagen-img img:nth-child(1) {
-  left: 0;
-  top: 0;
-  height: 100%;
+.car-name {
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.vervangwagen-area .vervangwagen-img img:nth-child(2) {
-  left: -151px;
-  top: 0px;
-  height: 100%;
+.car-card.placeholder .car-name {
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.vervangwagen-area .vervangwagen-img .swiper img {
-  bottom: -65px;
-  left: 0;
-  z-index: 1;
-}
-
-@-webkit-keyframes vervangwagen-ani {
-  0% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-  }
-
-  50% {
-    -webkit-transform: translate(0, -40px);
-    transform: translate(0, -40px);
-  }
-
-  100% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .cars-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
-@keyframes vervangwagen-ani {
-  0% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+@media (max-width: 768px) {
+  .vervangwagen-section {
+    padding: 60px 0;
   }
 
-  50% {
-    -webkit-transform: translate(0, -40px);
-    transform: translate(0, -40px);
+  .vervangwagen-container {
+    padding: 0 1rem;
   }
 
-  100% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-  }
-}
-
-.vervangwagen-content {
-  max-width: 500px;
-  margin-left: auto;
-  padding-top: 100px;
-  padding-bottom: 100px;
-  position: relative;
-}
-
-.vervangwagen-content .section-title {
-  text-align: left;
-  margin-bottom: 30px;
-}
-
-.vervangwagen-content .section-title h2 {
-  color: #ffffff;
-}
-
-.vervangwagen-content .section-title p {
-  margin-left: 0;
-  margin-top: 18px;
-  color: #ffffff;
-}
-
-.vervangwagen-content .cmn-btn a {
-  padding: 12px 20px;
-}
-
-.vervangwagen-content img {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  opacity: 0.1;
-  -webkit-animation: vervangwagen-tyre 10s infinite linear;
-  animation: vervangwagen-tyre 10s infinite linear;
-}
-
-@-webkit-keyframes vervangwagen-tyre {
-  0% {
-    -webkit-transform: translate(0px, 0px);
-    transform: translate(0px, 0px);
+  .vervangwagen-title {
+    font-size: 2rem;
   }
 
-  50% {
-    -webkit-transform: translate(-100px, 0px);
-    transform: translate(-100px, 0px);
+  .vervangwagen-text-content {
+    margin: 0 auto 3rem;
+    text-align: left;
   }
 
-  100% {
-    -webkit-transform: translate(0px, 0px);
-    transform: translate(0px, 0px);
+  .vervangwagen-text-content p {
+    font-size: 1rem;
+  }
+
+  .cars-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .car-card img,
+  .placeholder-image {
+    height: 180px;
   }
 }
 
-@keyframes vervangwagen-tyre {
-  0% {
-    -webkit-transform: translate(0px, 0px);
-    transform: translate(0px, 0px);
+@media (max-width: 480px) {
+  .vervangwagen-title {
+    font-size: 1.8rem;
   }
 
-  50% {
-    -webkit-transform: translate(-100px, 0px);
-    transform: translate(-100px, 0px);
+  .cars-grid {
+    grid-template-columns: 1fr;
   }
 
-  100% {
-    -webkit-transform: translate(0px, 0px);
-    transform: translate(0px, 0px);
-  }
-}
-
-/*-- vervangwagen --*/
-@media only screen and (max-width: 767px) {
-
-  .vervangwagen-area {
-    display: flex;
-    flex-direction: column;
+  .car-card img,
+  .placeholder-image {
+    height: 160px;
   }
 
-  .vervangwagen-img .swiper-wrapper {
-    width: 350px;
-    height: 350px;
+  .car-icon {
+    font-size: 2.5rem;
   }
 }
-
-/*-- End vervangwagen --*/

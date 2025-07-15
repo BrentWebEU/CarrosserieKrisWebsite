@@ -1,49 +1,40 @@
+import React from "react";
+import "./Eurogarant.css";
 import EurogarantLogo from "../../assets/img/LogoEurogarant.png";
 
 export default function Eurogarant() {
   return (
-    <section id="eurogarant" className="quality-area pt-100">
-      <div className="section-title">
-        <span className="sub-title">Eurogarant</span>
-        <h2>Eurogarant</h2>
-      </div>
-      <div className="container-fluid p-0">
-        <div className="row m-0 align-items-center">
-          <div className="col-lg-6 p-0">
-            <div className="quality-content">
-              <div className="section-title">
-                <p>
-                  Wij zijn de trotse houders van het Eurogarant label.
-                  Eurogarant verzekert:
-                </p>
-                <ul>
-                  <li>kwaliteitswerk gewaarborgd door een garantiebewijs</li>
-                  <li>dat de uitrusting beantwoordt aan de Europese normen</li>
-                  <li>
-                    het gebruik van originele wisselstukken en een herstelling
-                    volgens de richtlijnen van de constructeur
-                  </li>
-                  <li>een geïnformatiseerd bestek</li>
-                  <li>een vervangwagen</li>
-                </ul>
-                <p>
-                  Kortom u kunt een kwalitatief carrosseriebedrijf herkennen aan
-                  dit logo.
-                </p>
-                <p>
-                  Wij beschikken bovendien ook over het Eurogarant E-Mobility
-                  label. Dit houdt in dat wij voldoen aan alle criteria inzake
-                  hybride en elektrische voertuigen, in het kort HEV. U kan dus
-                  in alle vertrouwen uw hybride of elektrische wagen laten
-                  herstellen bij Carrosserie Kris.
-                </p>
+    <section id="eurogarant" className="eurogarant-section">
+      <div className="eurogarant-container">
+        <div className="eurogarant-content">
+          <div className="eurogarant-text">
+            <h2 className="eurogarant-title">Eurogarant Gecertificeerd</h2>
+            <p className="eurogarant-description">
+              Wij zijn trotse houders van het Eurogarant kwaliteitslabel. Dit
+              certificaat staat garant voor vakmanschap en betrouwbaarheid in de
+              carrosseriebranche.
+            </p>
+            <div className="eurogarant-features">
+              <div className="feature">
+                <span className="checkmark">✓</span>
+                <span>Kwaliteitsgarantie</span>
+              </div>
+              <div className="feature">
+                <span className="checkmark">✓</span>
+                <span>Europese normen</span>
+              </div>
+              <div className="feature">
+                <span className="checkmark">✓</span>
+                <span>Originele onderdelen</span>
+              </div>
+              <div className="feature">
+                <span className="checkmark">✓</span>
+                <span>Gespecialiseerd in hybride/elektrische voertuigen</span>
               </div>
             </div>
           </div>
-          <div className="col-lg-6 p-0" style={{ textAlign: "center" }}>
-            <div className="quality-img">
-              <img src={EurogarantLogo} alt="Kadett" />
-            </div>
+          <div className="eurogarant-logo">
+            <img src={EurogarantLogo} alt="Eurogarant Kwaliteitslabel" />
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaPhone, FaTimes } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
 import Logo from "../../assets/img/logo.svg";
 import "./Navbar.css";
 
@@ -125,15 +125,39 @@ export default function Navbar() {
         </motion.div>
 
         {/* Mobile Menu Toggle */}
-        <button
+        <motion.button
           className={`mobile-menu-toggle ${mobileMenuOpen ? "active" : ""}`}
           onClick={toggleMobileMenu}
           aria-label="Toggle mobile menu"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-        </button>
+          <motion.span
+            className="hamburger-line"
+            animate={{
+              rotate: mobileMenuOpen ? 45 : 0,
+              y: mobileMenuOpen ? 6 : 0,
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          />
+          <motion.span
+            className="hamburger-line"
+            animate={{
+              opacity: mobileMenuOpen ? 0 : 1,
+            }}
+            transition={{ duration: 0.2 }}
+          />
+          <motion.span
+            className="hamburger-line"
+            animate={{
+              rotate: mobileMenuOpen ? -45 : 0,
+              y: mobileMenuOpen ? -6 : 0,
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+          />
+        </motion.button>
       </div>
 
       {/* Mobile Navigation */}
@@ -160,12 +184,6 @@ export default function Navbar() {
                   alt="Carrosserie Kris"
                   className="mobile-logo"
                 />
-                <button
-                  className="mobile-nav-close"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <FaTimes />
-                </button>
               </div>
 
               <ul className="mobile-nav-list">

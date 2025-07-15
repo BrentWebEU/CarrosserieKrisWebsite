@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,112 +14,246 @@
 }
 
 .summer-popup-content {
-  background-color: #fff;
-  padding: 40px 35px;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3d6 100%);
+  padding: 2.5rem 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(244, 81, 30, 0.2);
   text-align: center;
   position: relative;
-  max-width: 550px;
+  max-width: 500px;
   width: 90%;
-  font-family: 'Poppins', 'Montserrat', sans-serif;
-  background-image: linear-gradient(135deg, #fff6e5, #fff0d9);
-  border: none;
+  font-family: "Poppins", "Montserrat", sans-serif;
   transform: scale(0.9);
   opacity: 0;
   animation: popIn 0.5s ease-out 0.1s forwards;
+  overflow: hidden;
+  border: 2px solid rgba(255, 193, 7, 0.2);
 }
 
+/* Particles */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  opacity: 0.6;
+  color: #ff8f00;
+  animation: float 6s ease-in-out infinite;
+}
+
+.particle.sun {
+  color: #ff6d00;
+}
+
+.particle.star {
+  color: #ffc107;
+}
+
+/* Close button */
 .summer-popup-close-button {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: none;
+  background: #ff6d00;
   border: none;
-  font-size: 22px;
   cursor: pointer;
-  color: #ff7043;
-  transition: all 0.2s ease;
+  color: white;
+  transition: all 0.3s ease;
   width: 36px;
   height: 36px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 15px rgba(255, 109, 0, 0.3);
+  font-size: 16px;
 }
 
 .summer-popup-close-button:hover {
-  background-color: rgba(255, 112, 67, 0.1);
-  transform: rotate(90deg);
+  background: #f57c00;
+  transform: scale(1.1);
+}
+
+/* Header */
+.popup-header {
+  margin-bottom: 2rem;
+}
+
+.summer-icon {
+  color: #ff6d00;
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
+  font-size: 3.5rem;
 }
 
 .summer-popup-title {
-  color: #ff6d00;
-  margin-bottom: 20px;
-  font-size: 2.2em;
+  color: #f4511e;
+  margin: 0;
+  font-size: 2.5rem;
   font-weight: 700;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.05);
-  animation: slideDown 0.4s ease-out forwards;
+  text-shadow: 1px 1px 2px rgba(244, 81, 30, 0.2);
 }
 
-.summer-popup-message,
-.summer-popup-dates,
-.summer-popup-contact {
-  color: #424242;
-  margin-bottom: 15px;
-  line-height: 1.6;
-  opacity: 0;
-  animation: fadeUp 0.5s ease-out forwards;
+/* Body content */
+.popup-body {
+  position: relative;
 }
 
 .summer-popup-message {
-  animation-delay: 0.2s;
+  color: #5d4037;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-weight: 500;
 }
 
 .summer-popup-dates {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
   font-weight: 600;
-  color: #f4511e;
-  padding: 10px;
-  background-color: rgba(255, 193, 7, 0.1);
-  border-radius: 10px;
-  margin: 20px 0;
-  animation-delay: 0.3s;
+  color: #d84315;
+  padding: 1.2rem;
+  background: rgba(255, 193, 7, 0.15);
+  border-radius: 15px;
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.summer-popup-dates svg {
+  color: #ff8f00;
+  font-size: 1.2rem;
 }
 
 .summer-popup-contact {
-  font-style: italic;
-  color: #616161;
-  animation-delay: 0.4s;
-  position: relative;
-  padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  color: #6d4c41;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
 }
 
-.summer-popup-contact::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 30%;
-  right: 30%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255, 109, 0, 0.5), transparent);
+.summer-popup-contact svg {
+  color: #ff6d00;
+  font-size: 1.1rem;
 }
 
+.summer-message {
+  color: #f4511e;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes popIn {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-@keyframes slideDown {
-  from { transform: translateY(-20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(180deg);
+  }
 }
 
-@keyframes fadeUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .summer-popup-content {
+    padding: 2rem 1.5rem;
+    margin: 1rem;
+  }
+
+  .summer-popup-title {
+    font-size: 2rem;
+  }
+
+  .summer-icon {
+    font-size: 3rem;
+  }
+
+  .summer-popup-message {
+    font-size: 1rem;
+  }
+
+  .summer-popup-dates {
+    font-size: 1rem;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .summer-popup-contact {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .summer-popup-title {
+    font-size: 1.8rem;
+  }
+
+  .summer-icon {
+    font-size: 2.5rem;
+  }
+
+  .particle {
+    opacity: 0.4;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .particle,
+  .summer-icon {
+    animation: none;
+  }
+
+  .summer-popup-content {
+    animation: none;
+    opacity: 1;
+    transform: scale(1);
+  }
 }
