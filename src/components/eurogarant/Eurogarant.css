@@ -1,0 +1,640 @@
+/* Modern Eurogarant Section */
+.eurogarant-section {
+  position: relative;
+  padding: 120px 0 100px;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  overflow: hidden;
+}
+
+.eurogarant-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(
+      circle at 30% 20%,
+      rgba(242, 42, 42, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 80%,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(242, 42, 42, 0.02) 50%,
+      transparent 100%
+    );
+  pointer-events: none;
+}
+
+.eurogarant-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Section Header */
+.eurogarant-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.eurogarant-subtitle {
+  display: inline-block;
+  background: linear-gradient(45deg, #f22a2a, #ff4757);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(242, 42, 42, 0.3);
+}
+
+.eurogarant-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 1.5rem;
+  line-height: 1.2;
+  position: relative;
+}
+
+.eurogarant-title::after {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(45deg, #f22a2a, #ff4757);
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(242, 42, 42, 0.5);
+}
+
+.eurogarant-description {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Main Content */
+.eurogarant-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* Info Section */
+.eurogarant-info-section {
+  padding-right: 2rem;
+}
+
+.main-description {
+  margin-bottom: 3rem;
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  margin: 0;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border-left: 4px solid #f22a2a;
+  backdrop-filter: blur(10px);
+}
+
+/* Guarantees Grid */
+.guarantees-grid {
+  margin-bottom: 3rem;
+}
+
+.guarantees-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 2rem;
+  text-align: center;
+}
+
+.guarantee-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.guarantee-card:hover {
+  border-color: rgba(242, 42, 42, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.guarantee-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 60px;
+  text-align: center;
+}
+
+.guarantee-content {
+  flex: 1;
+}
+
+.guarantee-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+}
+
+.guarantee-description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Quality Badge */
+.quality-badge {
+  background: linear-gradient(135deg, #f22a2a, #ff4757);
+  color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  box-shadow: 0 20px 60px rgba(242, 42, 42, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.quality-badge::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(45deg);
+  }
+}
+
+.badge-icon {
+  font-size: 3rem;
+  flex-shrink: 0;
+}
+
+.badge-text h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.badge-text p {
+  font-size: 1rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Logo Section */
+.eurogarant-logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logo-container {
+  position: relative;
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eurogarant-logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.logo-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(
+    circle,
+    rgba(242, 42, 42, 0.2) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 0.4;
+  }
+}
+
+/* E-Mobility Section */
+.emobility-section {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  padding: 2.5rem;
+  width: 100%;
+}
+
+.emobility-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.emobility-icon {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.emobility-icon :first-child {
+  color: #f22a2a;
+}
+
+.emobility-icon :last-child {
+  color: #4caf50;
+}
+
+.emobility-header h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+}
+
+.emobility-header p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* E-Mobility Features */
+.emobility-features {
+  margin-bottom: 2rem;
+}
+
+.emobility-feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.emobility-feature:last-child {
+  border-bottom: none;
+}
+
+.feature-check {
+  color: #4caf50;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.emobility-feature span {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+/* E-Mobility CTA */
+.emobility-cta {
+  background: linear-gradient(
+    135deg,
+    rgba(242, 42, 42, 0.2),
+    rgba(76, 175, 80, 0.2)
+  );
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.emobility-cta h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.8rem;
+}
+
+.emobility-cta p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .eurogarant-container {
+    padding: 0 1.5rem;
+  }
+
+  .eurogarant-content {
+    gap: 4rem;
+  }
+
+  .eurogarant-info-section {
+    padding-right: 1rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .eurogarant-section {
+    padding: 100px 0 80px;
+  }
+
+  .eurogarant-content {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .eurogarant-info-section {
+    padding-right: 0;
+  }
+
+  .guarantees-grid {
+    max-width: 600px;
+    margin: 0 auto 3rem;
+  }
+
+  .eurogarant-logo {
+    max-width: 250px;
+  }
+
+  .logo-glow {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .eurogarant-section {
+    padding: 80px 0 60px;
+  }
+
+  .eurogarant-container {
+    padding: 0 1rem;
+  }
+
+  .eurogarant-header {
+    margin-bottom: 4rem;
+  }
+
+  .eurogarant-content {
+    gap: 3rem;
+  }
+
+  .guarantee-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .guarantee-icon {
+    width: auto;
+  }
+
+  .quality-badge {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 1.5rem;
+  }
+
+  .badge-icon {
+    font-size: 2.5rem;
+  }
+
+  .emobility-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .eurogarant-logo {
+    max-width: 200px;
+  }
+
+  .logo-glow {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 640px) {
+  .eurogarant-section {
+    padding: 60px 0 50px;
+  }
+
+  .eurogarant-title::after {
+    width: 60px;
+    height: 3px;
+  }
+
+  .intro-text {
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .guarantee-card {
+    padding: 1.2rem 0.8rem;
+  }
+
+  .guarantee-icon {
+    font-size: 1.8rem;
+  }
+
+  .guarantee-title {
+    font-size: 1rem;
+  }
+
+  .guarantee-description {
+    font-size: 0.9rem;
+  }
+
+  .emobility-icon {
+    font-size: 2rem;
+  }
+
+  .emobility-header h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .eurogarant-section {
+    padding: 50px 0 40px;
+  }
+
+  .eurogarant-logo {
+    max-width: 180px;
+  }
+
+  .logo-glow {
+    width: 220px;
+    height: 220px;
+  }
+
+  .emobility-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .emobility-cta {
+    padding: 1.5rem;
+  }
+
+  .emobility-cta h4 {
+    font-size: 1.1rem;
+  }
+
+  .emobility-feature {
+    padding: 0.6rem 0;
+  }
+
+  .emobility-feature span {
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation Enhancements */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.guarantee-card:nth-child(odd) {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 0s;
+}
+
+.guarantee-card:nth-child(even) {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .guarantee-card,
+  .eurogarant-logo,
+  .logo-glow,
+  .quality-badge::before {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Focus states */
+.guarantee-card:focus-visible {
+  outline: 2px solid #f22a2a;
+  outline-offset: 4px;
+}
+
+/* Print styles */
+@media print {
+  .eurogarant-section {
+    background: white;
+    color: black;
+    padding: 2rem 0;
+  }
+
+  .eurogarant-title,
+  .guarantee-title,
+  .emobility-header h3 {
+    color: black;
+  }
+
+  .eurogarant-description,
+  .guarantee-description,
+  .intro-text {
+    color: #666;
+  }
+
+  .quality-badge,
+  .emobility-cta {
+    background: #f22a2a;
+    color: white;
+    box-shadow: none;
+  }
+
+  .guarantee-card,
+  .emobility-section {
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .logo-glow {
+    display: none;
+  }
+}
