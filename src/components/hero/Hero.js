@@ -1,16 +1,30 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import CarImage from "../../assets/img/hero/Hero-Background.jpg";
 import Logo from "../../assets/img/logo.svg";
 import "./Hero.css";
 
 export default function Hero() {
   const containerRef = useRef(null);
+  const contentRef = useRef(null);
   const { scrollY } = useScroll();
+  const isInView = useInView(containerRef, { once: true, margin: "-10%" });
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Parallax transforms
-  const contentY = useTransform(scrollY, [0, 1000], [0, -80]);
-  const imageY = useTransform(scrollY, [0, 1000], [0, -40]);
+  // Check for mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  // Parallax transforms (reduced for mobile)
+  const contentY = useTransform(scrollY, [0, 1000], [0, isMobile ? -40 : -80]);
+  const imageY = useTransform(scrollY, [0, 1000], [0, isMobile ? -20 : -40]);
 
   return (
     <div id="home" className="hero-section" ref={containerRef}>
@@ -43,26 +57,43 @@ export default function Hero() {
               width: "10%",
               height: "100%",
               pointerEvents: "none",
-              background: "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)"
+              background:
+                "linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)",
             }}
           ></div>
         </div>
       </motion.div>
 
       <motion.div
+        ref={contentRef}
         className="hero-content"
         style={{ y: contentY }}
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
+        initial={{ opacity: 0, y: isMobile ? 20 : 30 }}
+        animate={{
+          opacity: isInView ? 1 : 0,
+          y: isInView ? 0 : isMobile ? 20 : 30,
+        }}
+        transition={{
+          duration: isMobile ? 0.8 : 1,
+          delay: 0.2,
+          ease: "easeOut",
+        }}
       >
         <div className="hero-content-wrapper">
           {/* Company Name with integrated logo */}
           <motion.h1
             className="company-name"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            initial={{ opacity: 0, y: isMobile ? 15 : 20, scale: 0.95 }}
+            animate={{
+              opacity: isInView ? 1 : 0,
+              y: isInView ? 0 : isMobile ? 15 : 20,
+              scale: isInView ? 1 : 0.95,
+            }}
+            transition={{
+              duration: isMobile ? 0.6 : 0.8,
+              delay: 0.4,
+              ease: "easeOut",
+            }}
           >
             <span className="name-carrosserie">
               Carr
@@ -77,32 +108,51 @@ export default function Hero() {
           {/* Contact Actions */}
           <motion.div
             className="contact-actions"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            initial={{ opacity: 0, y: isMobile ? 15 : 20 }}
+            animate={{
+              opacity: isInView ? 1 : 0,
+              y: isInView ? 0 : isMobile ? 15 : 20,
+            }}
+            transition={{
+              duration: isMobile ? 0.6 : 0.8,
+              delay: 0.6,
+              ease: "easeOut",
+            }}
           >
             {/* Phone - Primary Action */}
-            <a href="tel:+32497284662" className="contact-primary">
+            <motion.a
+              href="tel:+32497284662"
+              className="contact-primary"
+              whileTap={{ scale: isMobile ? 0.95 : 0.98 }}
+              whileHover={!isMobile ? { scale: 1.02, y: -2 } : {}}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
               <i className="bx bx-phone"></i>
               <span className="contact-text">+32 497 28 46 62</span>
-            </a>
+            </motion.a>
 
             {/* Email - Secondary Action */}
-            <a
+            <motion.a
               href="mailto:kris@carrosseriekris.be"
               className="contact-secondary"
+              whileTap={{ scale: isMobile ? 0.95 : 0.98 }}
+              whileHover={!isMobile ? { scale: 1.02, y: -2 } : {}}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <i className="bx bx-envelope"></i>
               <span className="contact-text">kris@carrosseriekris.be</span>
-            </a>
+            </motion.a>
           </motion.div>
 
           {/* Minimal extras */}
           <motion.div
             className="hero-extras"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 1.5 }}
+            initial={{ opacity: 0, y: isMobile ? 10 : 0 }}
+            animate={{
+              opacity: isInView ? 1 : 0,
+              y: isInView ? 0 : isMobile ? 10 : 0,
+            }}
+            transition={{ duration: 0.8, delay: 0.8 }}
           >
             <div className="location-simple">
               <i className="bx bx-map-pin"></i>
@@ -119,14 +169,16 @@ export default function Hero() {
       {/* Simple scroll indicator */}
       <motion.div
         className="scroll-indicator"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.8 }}
+        transition={{ duration: 0.8, delay: 1.2 }}
       >
         <motion.div
           className="scroll-arrow"
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          animate={{ y: [0, isMobile ? 6 : 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          whileTap={{ scale: 0.9 }}
+          whileHover={!isMobile ? { scale: 1.1 } : {}}
           onClick={() => {
             const nextSection = document.getElementById("erkenning");
             if (nextSection) {
