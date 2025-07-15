@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaPhone, FaTimes } from "react-icons/fa";
+import { FaPhone } from "react-icons/fa";
 import Logo from "../../assets/img/logo.svg";
 import "./Navbar.css";
 
