@@ -805,6 +805,65 @@
     min-width: 44px;
     min-height: 44px;
   }
+
+  /* Circular design background decorations */
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+      radial-gradient(
+        circle at 50% 15%,
+        rgba(242, 42, 42, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 20% 80%,
+        rgba(255, 255, 255, 0.02) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 80% 90%,
+        rgba(242, 42, 42, 0.05) 0%,
+        transparent 50%
+      );
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Enhanced image container with pulsing ring */
+  .hero-image-section::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    border-radius: 50%;
+    background: linear-gradient(
+      45deg,
+      rgba(242, 42, 42, 0.1) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(242, 42, 42, 0.1) 100%
+    );
+    animation: pulse-ring 3s ease-in-out infinite;
+    z-index: -1;
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
 }
 
 /* Animation enhancements */
