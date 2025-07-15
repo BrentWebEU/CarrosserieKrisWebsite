@@ -11,23 +11,28 @@
 }
 
 .vervangwagen-title {
-  font-size: 3rem;
-  font-weight: 800;
+  font-size: 2.5rem;
+  font-weight: 700;
   color: white;
   text-align: center;
-  margin: 0 0 1rem;
-  background: linear-gradient(45deg, #f22a2a, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  margin: 0 0 2rem;
 }
 
-.vervangwagen-subtitle {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
+.vervangwagen-text-content {
+  max-width: 800px;
+  margin: 0 auto 4rem;
   text-align: center;
-  margin: 0 0 3rem;
-  font-weight: 300;
+}
+
+.vervangwagen-text-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+
+.vervangwagen-text-content p:last-child {
+  margin-bottom: 0;
 }
 
 .cars-grid {
@@ -117,10 +122,15 @@
   }
 
   .vervangwagen-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
-  .vervangwagen-subtitle {
+  .vervangwagen-text-content {
+    margin: 0 auto 3rem;
+    text-align: left;
+  }
+
+  .vervangwagen-text-content p {
     font-size: 1rem;
   }
 
