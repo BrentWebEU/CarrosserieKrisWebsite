@@ -184,12 +184,6 @@ export default function Navbar() {
                   alt="Carrosserie Kris"
                   className="mobile-logo"
                 />
-                <button
-                  className="mobile-nav-close"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <FaTimes />
-                </button>
               </div>
 
               <ul className="mobile-nav-list">
