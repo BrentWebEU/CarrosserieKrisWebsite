@@ -84,12 +84,6 @@ const SummerPopup = () => {
             <span>Van 28 juli tot en met 8 augustus</span>
           </div>
 
-          <p className="summer-popup-contact">
-            <FontAwesomeIcon icon={faPhone} />
-            <span>Voor spoedgevallen kunt u ons nog steeds bereiken</span>
-          </p>
-
-          <div className="summer-message">Geniet van de zomer!</div>
         </div>
       </div>
     </div>

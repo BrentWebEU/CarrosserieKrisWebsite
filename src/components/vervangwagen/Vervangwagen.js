@@ -1,14 +1,15 @@
 import React from "react";
 import "./Vervangwagen.css";
-import Suzuki from "../../assets/img/suzuki.png";
-import Kadett from "../../assets/img/kadett.png";
+import Suzuki from "../../assets/img/vervangwagens/suzuki.png";
 import MainCar from "../../assets/img/main_background_foto.png";
+import Mercedes from "../../assets/img/vervangwagens/mercedes.png";
+import FordTransit from "../../assets/img/vervangwagens/ford.png";
 
 export default function Vervangwagen() {
   const cars = [
     {
       image: MainCar,
-      name: "Premium Vervangwagen",
+      name: "Renault Captur",
       available: true,
     },
     {
@@ -17,29 +18,29 @@ export default function Vervangwagen() {
       available: true,
     },
     {
-      image: Kadett,
-      name: "Opel Kadett Classic",
+      image: null,
+      name: "Peugeot 208",
       available: true,
     },
     {
       image: null,
-      name: "BMW 3 Series",
-      available: false,
+      name: "Peugeot 2008",
+      available: true,
+    },
+    {
+      image: Mercedes,
+      name: "Mercedes CLA",
+      available: true,
+    },
+    {
+      image: FordTransit,
+      name: "Ford Transit",
+      available: true,
     },
     {
       image: null,
-      name: "Volkswagen Golf",
-      available: false,
-    },
-    {
-      image: null,
-      name: "Ford Focus",
-      available: false,
-    },
-    {
-      image: null,
-      name: "Audi A3",
-      available: false,
+      name: "Citroën C3",
+      available: true,
     },
   ];
 
@@ -81,7 +82,7 @@ export default function Vervangwagen() {
               ) : (
                 <div className="placeholder-image">
                   <div className="car-icon">🚗</div>
-                  <span>Binnenkort beschikbaar</span>
+                  <span>Afbeelding niet beschikbaar</span>
                 </div>
               )}
               <div className="car-name">{car.name}</div>
